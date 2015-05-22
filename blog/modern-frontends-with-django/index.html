@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="Gmailwatcher,Projects,Ubuntu," />
+  <meta name="keywords" content="django, webpack, reactjs," />
 
 
 
@@ -35,7 +35,7 @@
 
 
 
-  <title> An Update on GmailWatcher // Owais Lone </title>
+  <title> Let's modernize the way we handle frontend code with Django // Owais Lone </title>
 </head>
 
 <body>
@@ -107,7 +107,7 @@
           
           
             
-              An Update on GmailWatcher
+              Let's modernize the way we handle frontend code with Django
             
           
         </h1>
@@ -115,20 +115,9 @@
 
       <div class="post-meta">
         <span class="post-time">
-          Posted on 2010-09-15
+          Posted on 2015-05-21
         </span>
 
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; In
-            
-              <a href="/categories/shlog/">shlog</a>
-
-              
-              
-
-            
-          </span>
         
 
         
@@ -143,19 +132,32 @@
       
 
       
-        <p>In case you don’t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I’m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.</p>
-<h2 id="Features">Features</h2><ul>
-<li>Multiple Accounts</li>
-<li>Google Apps support</li>
-<li>Secure password storage using Gnome-Keyring</li>
-<li>Themable unread emails page</li>
-<li>Preferences sync using U1</li>
+        <h2 id="The_problem">The problem</h2><p>Django is awesome but it’s frontend toolchain is stuck in the past. Imagine if someone told you to copy all your python module dependencies in your source tree and import them from there. Unthinkable, right? We’ve pip and virtualenv for that. If not using pip is unthinkable then why is it okay to not use npm? While we were busy bundling our frontend dependencies as static files with django apps and writing tools like collecstatic to copy sources files, the javascript community came with some awesome pieces of software. npm is one of the best, probably the best package manager I’ve come across. Tools like grunt, gulp,<br>browserify, webpack are full of awesomeness. There is no excuse not the use them even if you’re not working with a nodejs framework directly.</p>
+<h3 id="Problems_with_the_currect_approach">Problems with the currect approach</h3><ul>
+<li>Manually maintaining dependencies is a pain.</li>
+<li>No integration with managers like npm and bower.</li>
+<li>Horrible for frontend engineers and designers to work with.</li>
 </ul>
-<p>Right now, my target is to make it stable/usable enough in time for Maverick. I’m planning to release the first stable version and getting it into Universe for Maverick. In fact, I’ve already submitted it to <a href="http://revu.ubuntuwire.com/p/gmailwatcher" target="_blank" rel="external">REVU</a> (MOTU Advocate, Anyone?).</p>
-<h2 id="Request">Request</h2><p>I intent to spend the next few days polishing the app. This post is essentially a call for user feedback. I would like to know what you don’t like about the way GmailWatcher works. Bugs, usability issues, appearance, anything that doesn’t count as a new feature.</p>
-<h2 id="Themes">Themes</h2><p>You can also contribute some themes for the email summaries view. A GmailWatcher theme is a simple HTML page styled with CSS. It’s pretty basic right now. Once Maverick is released, I’ll add JavaScript and local media support. Take a look at <a href="http://launchpad.net/gmailwatcher-themes-extra" target="_blank" rel="external">lp:gmailwatcher-themes-extra</a> in case you would like to add a theme or two.</p>
-<h2 id="Install">Install</h2><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="instruction"> add-apt-repository </span>ppa:loneowais/ppa</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install gmailwatcher</span><br></pre></td></tr></table></figure>
-<p><img src="http://feeds.feedburner.com/~r/Owaislone/~4/1-iooiIqDJE" alt=""></p>
+<h2 id="What_about_pipeline_and_compressor?">What about pipeline and compressor?</h2><p>Apps like django-pipeline and django-compressor have been great. I’ve been a great fan of django-pipeline actually but I hate how they take away all the transparency in order to make things a little bit magical. They are limited in what they can do by the staticfiles system. They are opaque and make it harder to debug problems. The thing I hatte most about them is that we’ve keep coming up with newer mini apps to add support for anything new in the javascript world. They take away the transparency and I hate that.</p>
+<h3 id="Problems_with_wrappers">Problems with wrappers</h3><ul>
+<li>The are opaque, hard to debug and slow.</li>
+<li>Limited by django’s staticfiles system.</li>
+<li>Docs, stackoverflow, blog posts, written for the javascript tools don’t directly apply to the django wrapper apps.</li>
+</ul>
+<h2 id="So_should_we_abandon_staticfiles?">So should we abandon staticfiles?</h2><p>No, but we should limit it to just collecting pre-bundled static assets to the target directory or static file server. We should not hook post-processors into it. The build process for frontend assets should be completely decoupled from staticfiles. How many times have you come across bug reports and support tickets describing how something they are trying to do works with say browserify but not with django-pipeline-browserify. This needs to stop.</p>
+<h2 id="How_do_we_integrate_the_frontend_tools_with_django_then?">How do we integrate the frontend tools with django then?</h2><p>We use bridges, not wrappers. Instead of writing wrappers around something like webpack and spawning webpack processes form within django, we should run webpack independently and pipe the output to django. If we can come up with a standard for this, we would only have to write a single bridge application for django. Then instead of writing django apps that wrap the javascript tools, we write plugins for the tools that emit useful data to be consumed by django.</p>
+<h2 id="webpack-bundle-tracker_+_django-webpack-loader">webpack-bundle-tracker + django-webpack-loader</h2><p><a href="https://github.com/owais/django-webpack-loader/" target="_blank">django-webpack-loader</a> and <a href="https://github.com/owais/webpack-bundle-tracker" target="_blank">webpack-bundle-tracker</a> implement a system like this. webpack-bundle-tracker plugin emits neccessary imformation about webpack’s compilation process and results and django-webpack-loader consumes it. django-webpack-loader does not care how you use webpack. You could control it from gulp, use the dev server, use the —watch mode or manually run it after every change. Head over to <a href="https://github.com/owais/django-webpack-loader/" target="_blank" rel="external">https://github.com/owais/django-webpack-loader/</a> to see how it all works or read <a href="#">got reload Reactjs with django using webpack</a> for a detailed example.</p>
+<h3 id="What_this_solves">What this solves</h3><ul>
+<li>Use proper package managers like npm and bower instead of manually managing source files.</li>
+<li>Use webpack transparently without any limitations and leverage all the documentation and resources.</li>
+<li>Handle your frontend assets however you want. Run webpack in watch mode, use grunt, gulp, webpacks’ dev server or anything you desire. No limitations.</li>
+<li>Make your frontend engineers and designers happy! :)</li>
+</ul>
+<h3 id="Limitations_of_this_approach_(for_now)">Limitations of this approach (for now)</h3><ul>
+<li>Harder to store static files in app directories (totally worth it).</li>
+<li>Doesn’t integrate with static files provided by 3rd party apps yet.</li>
+<li>Need to setup your frontend toolchain manually but that is very easy most of the time.</li>
+</ul>
 
       
     </div>
@@ -164,11 +166,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Gmailwatcher/"> #Gmailwatcher </a>
-          
-            <a href="/tags/Projects/"> #Projects </a>
-          
-            <a href="/tags/Ubuntu/"> #Ubuntu </a>
+            <a href="/tags/django-webpack-reactjs/"> #django, webpack, reactjs </a>
           
         </div>
       
@@ -177,13 +175,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/banshee-2.0/">Banshee 2 in Ubuntu</a>
+              <a href="/blog/Using-Reactjs-hot-reloading-with-Django-using-Webpack/">Reactjs (+ hot reloading) with Django using Webpack</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/tc-90-python-27/">From TC 90 to Python</a>
+              <a href="/blog/remember-the-rhythm/">Remember The Rhythm</a>
             
           </div>
         </div>
@@ -296,7 +294,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Features"><span class="nav-number">1.</span> <span class="nav-text">Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Request"><span class="nav-number">2.</span> <span class="nav-text">Request</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Themes"><span class="nav-number">3.</span> <span class="nav-text">Themes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install"><span class="nav-number">4.</span> <span class="nav-text">Install</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#The_problem"><span class="nav-number">1.</span> <span class="nav-text">The problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problems_with_the_currect_approach"><span class="nav-number">1.1.</span> <span class="nav-text">Problems with the currect approach</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What_about_pipeline_and_compressor?"><span class="nav-number">2.</span> <span class="nav-text">What about pipeline and compressor?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problems_with_wrappers"><span class="nav-number">2.1.</span> <span class="nav-text">Problems with wrappers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#So_should_we_abandon_staticfiles?"><span class="nav-number">3.</span> <span class="nav-text">So should we abandon staticfiles?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How_do_we_integrate_the_frontend_tools_with_django_then?"><span class="nav-number">4.</span> <span class="nav-text">How do we integrate the frontend tools with django then?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-bundle-tracker_+_django-webpack-loader"><span class="nav-number">5.</span> <span class="nav-text">webpack-bundle-tracker + django-webpack-loader</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What_this_solves"><span class="nav-number">5.1.</span> <span class="nav-text">What this solves</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Limitations_of_this_approach_(for_now)"><span class="nav-number">5.2.</span> <span class="nav-text">Limitations of this approach (for now)</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
