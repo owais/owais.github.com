@@ -269,7 +269,7 @@ a.article-title:hover,
   font-size: 14px;
   position: relative;
   border-bottom: 1px solid #ddd;
-  padding-left: 80px;
+  padding-left: left-padding;
 }
 #header.mobile-on #main-nav,
 #header.mobile-on #sub-nav {
@@ -388,7 +388,7 @@ a.article-title:hover,
   cursor: pointer;
 }
 .article {
-  margin: 50px 0;
+  margin: 0;
   border-bottom: 1px solid #ddd;
 }
 .article-inner {
@@ -396,7 +396,9 @@ a.article-title:hover,
   overflow: hidden;
 }
 .article-meta {
-  padding-left: 80px;
+  text-align: center;
+  font-size: 15px;
+  padding: 50px 50px 30px 50px;
 }
 .article-meta:before,
 .article-meta:after {
@@ -410,7 +412,8 @@ a.article-title:hover,
   color: #939393;
 }
 .article-date {
-  float: left;
+  font-style: italic;
+  font-weight: 300;
 }
 .article-category {
   float: left;
@@ -440,7 +443,7 @@ a.article-title:hover,
 .article-header {
   margin-bottom: 10px;
   max-width: 90%;
-  padding-left: 80px;
+  padding-left: 50px;
 }
 .article-title {
   font-size: 2em;
@@ -453,6 +456,7 @@ a.article-title {
 .article-entry {
   color: #666;
   padding: 0;
+  text-align: justify;
 }
 .article-entry:before,
 .article-entry:after {
@@ -468,13 +472,13 @@ a.article-title {
   color: #666;
 }
 .article-entry p {
-  max-width: 800px;
-  padding-left: 80px;
+  padding: 0 50px;
 }
 .article-entry p,
 .article-entry table {
   line-height: 1.4em;
   margin: 1.4em 0;
+  max-width: 735px;
 }
 .article-entry h1,
 .article-entry h2,
@@ -486,14 +490,15 @@ a.article-title {
   font-weight: 600;
   line-height: 1.4em;
   margin: 1em 0;
-  padding-left: 80px;
+  padding: 0 50px;
 }
 .article-entry ul,
 .article-entry ol,
 .article-entry dl {
   margin-top: 1.4em;
   margin-bottom: 1.4em;
-  padding-left: 80px;
+  padding: 0 50px;
+  max-width: 735px;
 }
 .article-entry img,
 .article-entry video {
@@ -520,14 +525,14 @@ a.article-title {
   padding: 10px 0;
 }
 .article-entry blockquote {
-  max-width: 800px;
+  max-width: 735px;
   background: #f7f7f7;
   color: #222;
   padding: 10px 30px;
   font-family: 'Lato', 'Myriad Pro', Helvetica, Arial, sans-serif;
   font-size: 25s;
   margin: 1.4em 20px;
-  margin-left: 80px;
+  margin-left: 50px;
 }
 .article-entry blockquote p {
   padding: 5px 20px;
@@ -586,7 +591,7 @@ a.article-title {
   font-size: 0.85em;
   padding: 1.4em 0;
   line-height: 1.4em;
-  padding-left: 80px;
+  padding-left: 50px;
   margin: 0;
 }
 .article-footer:before,
@@ -614,7 +619,7 @@ a.article-title {
 #article-nav {
   position: relative;
   margin: 20px 0;
-  padding-left: 80px;
+  padding: 0 50px;
 }
 #article-nav:before,
 #article-nav:after {
@@ -696,7 +701,7 @@ a.article-title {
 }
 .archives-wrap {
   margin: 50px 0;
-  padding-left: 80px;
+  padding-left: left-padding;
 }
 .archives:before,
 .archives:after {
@@ -787,7 +792,7 @@ a.article-title {
 #footer {
   padding: 50px 0;
   text-align: center;
-  padding-left: 80px;
+  padding-left: left-padding;
 }
 #footer a {
   font-weight: 600;
@@ -800,11 +805,12 @@ a.article-title {
 .article-entry .highlight {
   margin: 0;
   font-size: 17px;
-  background: #222;
+  background: #002b36;
+  color: #839496;
   padding: 15px 0;
   overflow: auto;
   color: #fff;
-  padding-left: 80px;
+  padding-left: left-padding;
   line-height: 28px;
 }
 .article-entry .highlight .gutter pre,
