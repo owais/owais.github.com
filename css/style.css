@@ -701,7 +701,7 @@ a.article-title {
 }
 .archives-wrap {
   margin: 50px 0;
-  padding-left: left-padding;
+  line-height: 28px;
 }
 .archives:before,
 .archives:after {
@@ -792,7 +792,7 @@ a.article-title {
 #footer {
   padding: 50px 0;
   text-align: center;
-  padding-left: left-padding;
+  padding: 0 50px;
 }
 #footer a {
   font-weight: 600;
@@ -810,7 +810,7 @@ a.article-title {
   padding: 15px 0;
   overflow: auto;
   color: #fff;
-  padding-left: left-padding;
+  padding: 0 50px;
   line-height: 28px;
 }
 .article-entry .highlight .gutter pre,
