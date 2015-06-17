@@ -269,7 +269,7 @@ a.article-title:hover,
   font-size: 14px;
   position: relative;
   border-bottom: 1px solid #ddd;
-  padding-left: left-padding;
+  padding: 0 50px;
 }
 #header.mobile-on #main-nav,
 #header.mobile-on #sub-nav {
