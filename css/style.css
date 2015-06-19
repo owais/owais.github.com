@@ -395,8 +395,15 @@ a.article-title:hover,
   margin-bottom: 15px;
   overflow: hidden;
 }
+.article-inner .right-border {
+  position: fixed;
+  top: 0;
+  left: 800px;
+  bottom: 0;
+  border-left: 1px solid #ddd;
+  z-index: -100;
+}
 .article-meta {
-  text-align: center;
   font-size: 15px;
   padding: 50px 50px 30px 50px;
 }
@@ -412,8 +419,7 @@ a.article-title:hover,
   color: #939393;
 }
 .article-date {
-  font-style: italic;
-  font-weight: 300;
+  font-weight: 600;
 }
 .article-category {
   float: left;
@@ -442,16 +448,18 @@ a.article-title:hover,
 }
 .article-header {
   margin-bottom: 10px;
-  max-width: 90%;
+  max-width: 700px;
   padding-left: 50px;
 }
 .article-title {
   font-size: 2em;
   font-weight: 700;
   line-height: 1em;
+  max-width: 700px;
 }
 a.article-title {
   color: #333;
+  max-width: 700px;
 }
 .article-entry {
   color: #666;
@@ -478,7 +486,7 @@ a.article-title {
 .article-entry table {
   line-height: 1.4em;
   margin: 1.4em 0;
-  max-width: 735px;
+  max-width: 700px;
 }
 .article-entry h1,
 .article-entry h2,
@@ -491,6 +499,8 @@ a.article-title {
   line-height: 1.4em;
   margin: 1em 0;
   padding: 0 50px;
+  padding-top: 20px;
+  max-width: 700px;
 }
 .article-entry ul,
 .article-entry ol,
@@ -498,7 +508,7 @@ a.article-title {
   margin-top: 1.4em;
   margin-bottom: 1.4em;
   padding: 0 50px;
-  max-width: 735px;
+  max-width: 700px;
 }
 .article-entry img,
 .article-entry video {
@@ -525,10 +535,10 @@ a.article-title {
   padding: 10px 0;
 }
 .article-entry blockquote {
-  max-width: 735px;
+  max-width: 700px;
   background: #f7f7f7;
   color: #222;
-  padding: 10px 30px;
+  padding: 10px;
   font-family: 'Lato', 'Myriad Pro', Helvetica, Arial, sans-serif;
   font-size: 25s;
   margin: 1.4em 20px;
@@ -810,7 +820,7 @@ a.article-title {
   padding: 15px 0;
   overflow: auto;
   color: #fff;
-  padding: 0 50px;
+  padding: 10px 50px;
   line-height: 28px;
 }
 .article-entry .highlight .gutter pre,
