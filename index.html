@@ -18,31 +18,12 @@
   
     <link rel="icon" href="/favicon.png">
   
-
-  <style>
-    
-    @font-face {
-      font-family: 'Lato';
-      font-style: normal;
-      font-weight: 400;
-      src: local('Lato Regular'), local('Lato-Regular'), url(//themes.googleusercontent.com/static/fonts/lato/v7/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
-    }
-    
-
-    @font-face {
-      font-family: 'Lato';
-      font-style: normal;
-      font-weight: 700;
-      src: local('Lato Bold'), local('Lato-Bold'), url(//themes.googleusercontent.com/static/fonts/lato/v7/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
-    }
-  </style>
-  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css" type="text/css">
   
 
 </head>
-
 <body>
   <div id="container">
     <header id="header">
@@ -63,16 +44,7 @@
     <section id="main" class="outer">
       <article id="post-webpack-plus-reactjs-and-django" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
-    <div class="right-border"></div>
     
-
-    <div class="article-meta">
-      <a href="/blog/webpack-plus-reactjs-and-django/" class="article-date">
-  <time datetime="2015-05-22T19:01:14.000Z" itemprop="datePublished">2015-05-23</time>
-</a>
-      
-      
-    </div>
     
       <header class="article-header">
         
@@ -84,69 +56,25 @@
 
       </header>
     
+    <div class="article-meta">
+      <a href="/blog/webpack-plus-reactjs-and-django/" class="article-date">
+  <time datetime="2015-05-22T19:01:14.000Z" itemprop="datePublished">2015-05-23</time>
+</a>
+      
+      
+    </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>If you don’t already know <a href="http://webpack.github.io/docs/what-is-webpack.html" target="_blank" rel="external">webpack</a>, you’ve some <a href="https://egghead.io/lessons/javascript-intro-to-webpack" target="_blank">catching up to do</a>.</p>
+        <p>If you don’t already know <a href="http://webpack.github.io/docs/what-is-webpack.html">webpack</a>, you’ve some <a href="https://egghead.io/lessons/javascript-intro-to-webpack" target="_blank">catching up to do</a>.</p>
 <blockquote>
 <p>Webpack is a module bundler that bundles javascript and other assets for the browser. It works really well for applications and javascript libraries and is very simple frontend build tool.</p>
-<p>- Kent C. Dodds <small> -  <a href="https://egghead.io/lessons/javascript-intro-to-webpack" target="_blank" rel="external">https://egghead.io/lessons/javascript-intro-to-webpack</a></small></p>
+<p>- Kent C. Dodds <small> -  <a href="https://egghead.io/lessons/javascript-intro-to-webpack">https://egghead.io/lessons/javascript-intro-to-webpack</a></small></p>
 </blockquote>
-<h2 id="Objectives_and_reasoning">Objectives and reasoning</h2><p>We’ll be setting up webpack and keeping it decoupled from django’s staticfiles system. Read <a href="http://owaislone.org/blog/modern-frontends-with-django/" target="_blank">my earlier post</a> explaining why we we’ll be handling things this way and not integrating with staticfiles. We’ll be using <a href="https://github.com/owais/webpack-bundle-tracker" target="_blank">webpack-bundle-tracker</a> to extract information from webpack and <a href="https://github.com/owais/django-webpack-loader/" target="_blank" rel="external">django-webpack-loader</a> to use the extracted information for django integration.</p>
-<h2 id="Setting_up_webpack">Setting up webpack</h2><p>We’ll use <a href="http://npmjs.com/" target="_blank" rel="external">npm</a> to manage our frontend dependencies instead of managing them manually in one of the static files directories. You can optionally use <a href="http://bower.io/" target="_blank" rel="external">bower</a> as well in addition to npm.</p>
-<p>First let’s setup npm in the root of your django project. This will generate a file called <code>package.json</code> in your project root. It serves 2 purposes. Imagine requirements.txt and setup.py merged into one. That is package.json for npm packages. If you use the <code>--save</code> or <code>--save-dev</code> flag when installing a package, it’ll save the packages as dependencies in the package.json file. To reinstall the packages, all you need to is run <code>npm install</code>. Awesome, right? It gets better. The packages will be installed locally specific to your project under a directory called node_modules like virtualenv. To install a package globally, all you need to do is to use <code>-g</code> with npm install.</p>
-<p>So, let’s generate a package.json file in our project root using npm init</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
-<h3 id="Npm_dependencies">Npm dependencies</h3><p>In addition to webpack, we’ll at least need the webpack-bundle-tracker plugin to extract useful information from webpack and store it in as json in a file. This file will act as the link between webpack and django.</p>
-<p>Since we’ll be setting up webpack with an example reactjs app, we’ll also need <a href="https://babeljs.io/" tatget="_blank" target="_blank" rel="external">babel</a>. Babel is a great Javascript compiler that compiles ES6 into ES5 among other things. This lets use write next generation javascript today and still have run work in current browsers. Babel also supports react’s JSX language so we don’t need an additional compiler for that. </p>
-<p>We’ll also need babel-loader to integrate babel with webpack. Webpack supports pluggable libraries called loaders that add support for different types of files and languages. Loaders can also be chained. For example, you can make a less file go through a less loader to compile it to css and then pass the output  through a css loader. <a href="http://webpack.github.io/docs/using-loaders.html" target="_blank">More on loaders here</a>.</p>
-<h3 id="save_vs_save-dev">save vs save-dev</h3><p><code>--save</code> saves the packages you install as dependencies of your package. The packages that must be installed in order to run your package. <code>--save-dev</code> saves the packages as build dependencies, the packages that must be installed to hack on your package. Since we are not going to be publishing a real npm package, either one works. I like to use —save-dev as I only need the packages to build my bundles. Whatever the bundle depends on is included in the bundle it self.</p>
-<p>Let’s install our first npm packages<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev react webpack webpack-bundle-tracker babel babel-loader</span><br></pre></td></tr></table></figure></p>
-<h3 id="Create_webpack_config">Create webpack config</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -<span class="tag">p</span> assets/js</span><br><span class="line">touch webpack<span class="class">.config</span><span class="class">.js</span></span><br><span class="line">touch assets/js/index.js</span><br></pre></td></tr></table></figure>
-<p>Let’s create a simple webpack config to load <code>.jsx</code> files using babel and use the <code>webpack-bundle-tracker</code> plugin to extract information to <code>webpack-stats.json</code>. <a href="http://webpack.github.io/docs/configuration.html" target="_blank">More on webpack configuration here</a>.</p>
-<p><code>webpack.config.js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="keyword">var</span> BundleTracker = <span class="built_in">require</span>(<span class="string">'webpack-bundle-tracker'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  context: __dirname,</span><br><span class="line"></span><br><span class="line">  entry: <span class="string">'./assets/js/index'</span>, <span class="comment">// entry point of our app. assets/js/index.js should require other js modules and dependencies it needs</span></span><br><span class="line"></span><br><span class="line">  output: &#123;</span><br><span class="line">      path: path.resolve(<span class="string">'./assets/bundles/'</span>),</span><br><span class="line">      filename: <span class="string">"[name]-[hash].js"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> BundleTracker(&#123;filename: <span class="string">'./webpack-stats.json'</span>&#125;),</span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [</span><br><span class="line">      &#123; test: <span class="regexp">/\.jsx?$/</span>, exclude: <span class="regexp">/node_modules/</span>, loader: <span class="string">'babel-loader'</span>&#125;, <span class="comment">// to transform JSX into JS</span></span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  resolve: &#123;</span><br><span class="line">    modulesDirectories: [<span class="string">'node_modules'</span>, <span class="string">'bower_components'</span>],</span><br><span class="line">    extensions: [<span class="string">''</span>, <span class="string">'.js'</span>, <span class="string">'.jsx'</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>At this point, our directory structure will look something like this.<br><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">root</span>/</span><br><span class="line">├── manage.py</span><br><span class="line">├── <span class="keyword">package</span>.json</span><br><span class="line">│── webpack.config.js</span><br><span class="line">│── webpack-stats.json <span class="comment"># generated by webpack</span></span><br><span class="line">├── node_modules/ <span class="comment">#contains our JS dependencies. This is like python's virtualenv directory</span></span><br><span class="line">├── assets/ <span class="comment">#added to STATICFILES_DIRS</span></span><br><span class="line">│   └── js/ <span class="comment"># contains out JS source code</span></span><br><span class="line">│   └── bundles/ <span class="comment"># generated by webpack</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="Compiling_our_first_bundle">Compiling our first bundle</h3><p>Binaries shipped with node packages are installed to <code>node_modules/.bin/</code> and it not added to <code>$PATH</code> automatically so we need to use full paths to the binaries. Installing binaries globablly like <code>npm install -g webpack</code> will add them to one of the binary location on in <code>$PATH</code>.</p>
-<p>Let’s go ahead and compile our first bundle<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./node_modules/.bin/webpack --config webpack.config.js</span><br></pre></td></tr></table></figure></p>
-<p>This should create bundle at <code>assets/bundles/main-[hash].js</code>. This is good but we don’t want to create bundles manually every time we make changes to our code.</p>
-<h3 id="Watch_mode">Watch mode</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./node_modules/.bin/webpack --config webpack.config.js --watch</span><br></pre></td></tr></table></figure>
-<p>This will leave the compiler running and compile bundles automatically when you change any of your source files. You’ll need to restart it if you make any changes to the webpack configuration though.</p>
-<hr>
-
-<h2 id="Example_react_app">Example react app</h2><p><a href="#Django_integration">Skip this part</a> if you already have a react app running.</p>
-<p>Let’s write a simple “hello, world” react app and use webpack to compile it. We refer to <code>./assets/js/index</code> as the entry point of our app in <code>webpack.config.js</code> which will look for <code>index</code>, <code>index.js</code> or <code>index.jsx</code> because we’ve added these three extensions to our webpack config under the key <code>resolve</code>.</p>
-<p><code>assets/js/index.jsx</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"><span class="keyword">var</span> App = <span class="built_in">require</span>(<span class="string">'./app'</span>);</span><br><span class="line"></span><br><span class="line">React.render(<span class="xml"><span class="tag">&lt;<span class="title">App</span>/&gt;</span>, document.getElementById('react-app'));</span></span><br></pre></td></tr></table></figure></p>
-<p><br><br><code>assets/js/app.jsx</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = React.createClass(&#123;</span><br><span class="line">   render: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>Hello, world.<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;);</span></span><br></pre></td></tr></table></figure></p>
-<p>If you left webpack running in watch mode, it should automatically pick up the changes and compile a new bundle.<br><br></p>
-<p><hr></p>
-<h2 id="Django_integration">Django integration</h2><p>Now that we’ve handed off the build process webpack, only thing we need on the django side is to know which bundle to include in our html pages. This is where <code>django-webpack-loader</code> comes in. It’ll also raise exceptions when webpack fails to build a bundle and django will show some useful information when in debug mode. To make sure django loads latest bundles during development, webpack loader will block any requests whenever it find webpack compiling code if <code>DEBUG=True</code>. All this happens without making any asumptions about your webpack configuration, binaries or if run webpack or not since <code>django-webpack-loader</code> does not control your webpack processes. So, we are completely free to use webpack however we want as long as we use the <code>webpack-bundle-tracker</code> plugin.</p>
-<h3 id="Requirements">Requirements</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django-webpack-loader</span><br></pre></td></tr></table></figure>
-<h3 id="Configuration">Configuration</h3><h4 id="settings-py">settings.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))</span><br><span class="line"></span><br><span class="line">STATICFILES_DIRS = (</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">'assets'</span>), <span class="comment"># We do this so that django's collectstatic copies or our bundles to the STATIC_ROOT or syncs them to whatever storage we use.</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">WEBPACK_LOADER = &#123;</span><br><span class="line">    <span class="string">'BUNDLE_DIR_NAME'</span>: <span class="string">'bundles/'</span>,</span><br><span class="line">    <span class="string">'STATS_FILE'</span>: os.path.join(BASE_DIR, <span class="string">'webpack-stats.json'</span>),</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">INSTALLED_APPS = (</span><br><span class="line"> ...</span><br><span class="line"> <span class="string">'webpack_loader'</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h3 id="Usage">Usage</h3><h4 id="In_templates">In templates</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;% load render_bundle from webpack_loader %&#125;</span><br><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Example<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"react-app"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    &#123;% render_bundle 'main' %&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><code>render_bundle</code> will render the required <code>&lt;script&gt;</code> and <code>&lt;link&gt;</code> tags in the template.</p>
-<p>Everything we need is in place now. Bundles will be automatically generated (provided you start webpack with —watch) and django will automatically pick up latest bundles from <code>assets/bundles</code> directory. In development, django will also block any requests while the bundles are being compiled. It’ll also raise raise if webpack fails to build at which point we can turn to our webpack process for more details.</p>
-<p>Now that we’ve webpack working with django, let’s make things a little more fun by setting up hot reloading for our react components.</p>
-<p><hr></p>
-<h2 id="Bonus:_Live_editing_react_components">Bonus: Live editing react components</h2><p>Since we are using pure webpack without any abstraction, we are free to use it however we want without the need to integrate any special with django. Whenever something new comes up for webpack, we can immediately use it without worrying if staticfiles, pipeline or compressor will support it or not. Decoupling FTW!</p>
-<p>We’ll use a library called <a href="http://gaearon.github.io/react-hot-loader/" target="_blank">react-hot-loader</a> by <a href="https://github.com/gaearon/react-hot-loader" target="_blank">Dan Abramov</a>. We’ll also need <a href="https://github.com/webpack/webpack-dev-server" target="_blank" rel="external">webpack-dev-server</a> to build and serve our bundles if we want to hot reload any modules.</p>
-<h3 id="Requirements-1">Requirements</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack-dev-server react-hot-loader</span><br></pre></td></tr></table></figure>
-<p>Let’s modify <code>webpack.config.js</code> to use webpack-dev-server and react-hot-loader<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="keyword">var</span> BundleTracker = <span class="built_in">require</span>(<span class="string">'webpack-bundle-tracker'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  context: __dirname,</span><br><span class="line">  entry: [</span><br><span class="line">      <span class="string">'webpack-dev-server/client?http://localhost:3000'</span>,</span><br><span class="line">      <span class="string">'webpack/hot/only-dev-server'</span>,</span><br><span class="line">      <span class="string">'./assets/js/index'</span></span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  output: &#123;</span><br><span class="line">      path: path.resolve(<span class="string">'./assets/bundles/'</span>),</span><br><span class="line">      filename: <span class="string">"[name]-[hash].js"</span>,</span><br><span class="line">      publicPath: <span class="string">'http://localhost:3000/assets/bundles/'</span>, <span class="comment">// Tell django to use this URL to load packages and not use STATIC_URL + bundle_name</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),</span><br><span class="line">    <span class="keyword">new</span> webpack.NoErrorsPlugin(), <span class="comment">// don't reload if there is an error</span></span><br><span class="line">    <span class="keyword">new</span> BundleTracker(&#123;filename: <span class="string">'./webpack-stats.json'</span>&#125;),</span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [</span><br><span class="line">      <span class="comment">// we pass the output from babel loader to react-hot loader</span></span><br><span class="line">      &#123; test: <span class="regexp">/\.jsx?$/</span>, exclude: <span class="regexp">/node_modules/</span>, loaders: [<span class="string">'react-hot'</span>, <span class="string">'babel'</span>], &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  resolve: &#123;</span><br><span class="line">    modulesDirectories: [<span class="string">'node_modules'</span>, <span class="string">'bower_components'</span>],</span><br><span class="line">    extensions: [<span class="string">''</span>, <span class="string">'.js'</span>, <span class="string">'.jsx'</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Instead of running <code>webpack --watch</code>, we’ll run webpack-dev-server to both compile and serve our bundles. The server will run on port 3000. <code>publicPath</code> in our webpack config refers to this server. Note that the server will by default keep the bunles in memory and not write to disk, so don’t be surprised if you don’t see anything new in <code>assets/bundles/</code>. Let’s use webpack-dev-server’s API to create a new instance of the server and pass webpack initialized with out config file to it. We’ll store this as <code>server.js</code> in our project root and use node run the server.</p>
-<p><code>server.js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="keyword">var</span> WebpackDevServer = <span class="built_in">require</span>(<span class="string">'webpack-dev-server'</span>);</span><br><span class="line"><span class="keyword">var</span> config = <span class="built_in">require</span>(<span class="string">'./webpack.config'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> WebpackDevServer(webpack(config), &#123;</span><br><span class="line">  publicPath: config.output.publicPath,</span><br><span class="line">  hot: <span class="literal">true</span>,</span><br><span class="line">  inline: <span class="literal">true</span>,</span><br><span class="line">  historyApiFallback: <span class="literal">true</span></span><br><span class="line">&#125;).listen(<span class="number">3000</span>, <span class="string">'0.0.0.0'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(err, result)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Listening at 0.0.0.0:3000'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>Taken from <a href="https://github.com/gaearon/react-hot-boilerplate/" target="_blank" rel="external">https://github.com/gaearon/react-hot-boilerplate/</a></p>
-<p>Now instead of running webpack in watch mode, we run webpack-dev-server like this<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node server.js</span><br></pre></td></tr></table></figure></p>
-<p>Done! Any changes made to the react components will reflect in the browser. No reload needed. Magic! right?</p>
-<p>If you are interested in hot reloading react components, you should read this <a href="https://medium.com/@dan_abramov/the-death-of-react-hot-loader-765fa791d7c4" target="_blank" rel="external">https://medium.com/@dan_abramov/the-death-of-react-hot-loader-765fa791d7c4</a></p>
-<hr>
-
-<h2 id="Production_environments">Production environments</h2><p>Production bundles are different than local ones for various reason. I like to have slightly different webpack config for production, generate them locally and commit the bundle(s) and stats file to the codebase. As we store our bundles in assets and django is configured to look for static files in the assets directory, we don’t need to do anything special here. Everything should just work with your existing system of serving static content in production.</p>
-<p>We can either treat the bundles as part of source code or distribution. I like to treat them as source code even though they are not because I don’t like building bundles on production or having my production systems depend on dev dependencies. By treating them as source code, I build them locally before preparing a new release, sync them to my static file server, commit the new stats file to source and push our the new release to the production servers. As soon as they workers on production restart, they automatically refer to the new bundles. That said, you are completely free to handle them the opposite way. You can tell git to ignore the generated bundles and stats file so they are not pushed to production and then run webpack on production just before running collectstatic. You’ll need all your npm dependencies on production as well obviously.</p>
-<p><strong>Imporant</strong>: Make sure production config doesn’t use react-hot-loader or webpack-dev-server. Also make sure you use something like Uglify to compress your code and strip off any code only meant to be used in development.<br><strong>Note</strong>: You should add our local webpack stats file and local bundles to .gitignore as they serve no purpose outside your local environment.</p>
-<p><code>webpack.prod.config.js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> config = <span class="built_in">require</span>(<span class="string">'./webpack.config.js'</span>);</span><br><span class="line"></span><br><span class="line">config.output.path = <span class="built_in">require</span>(<span class="string">'path'</span>).resolve(<span class="string">'./assets/dist'</span>);</span><br><span class="line">config.output.pathName = <span class="string">'/production/path/to/bundle/directory'</span>; <span class="comment">// This will override the url generated by django's staticfiles</span></span><br><span class="line"></span><br><span class="line">config.plugins = [</span><br><span class="line">  <span class="keyword">new</span> BundleTracker(&#123;filename: <span class="string">'./webpack-stats-prod.json'</span>&#125;),</span><br><span class="line"></span><br><span class="line">  <span class="comment">// removes a lot of debugging code in React</span></span><br><span class="line">  <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">    <span class="string">'process.env'</span>: &#123;</span><br><span class="line">      <span class="string">'NODE_ENV'</span>: <span class="built_in">JSON</span>.stringify(<span class="string">'production'</span>)</span><br><span class="line">  &#125;&#125;),</span><br><span class="line"></span><br><span class="line">  <span class="comment">// keeps hashes consistent between compilations</span></span><br><span class="line">  <span class="keyword">new</span> webpack.optimize.OccurenceOrderPlugin(),</span><br><span class="line"></span><br><span class="line">  <span class="comment">// minifies your code</span></span><br><span class="line">  <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">    compressor: &#123;</span><br><span class="line">      warnings: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><br><br><code>settings.py</code><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">if</span> <span class="tag">not</span> <span class="rule"><span class="attribute">DEBUG</span>:<span class="value"></span><br><span class="line">    WEBPACK_LOADER.<span class="function">update</span>(&#123;</span><br><span class="line">        <span class="string">'BUNDLE_DIR_NAME'</span>: <span class="string">'dist/'</span>,</span><br><span class="line">        <span class="string">'STATS_FILE'</span>: os.path.<span class="function">join</span>(BASE_DIR, <span class="string">'webpack-stats-prod.json'</span></span><br><span class="line">    &#125;)</span></span></span><br></pre></td></tr></table></figure></p>
-<p>Generate production bundles by invoking webpack one time with production config<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./node_modules/.bin/webpack --config webpack.prod.config.js</span><br></pre></td></tr></table></figure></p>
-<p>This will create production bundles in <code>./assets/dist/</code> and the stats file at <code>./webpack-stats-prod.json</code>.</p>
-<p>Now we can run collectstatic collect our bundles and serve them just however it is configured.</p>
-
+        
+          <p class="article-more-link">
+            <a href="/blog/webpack-plus-reactjs-and-django/#more">Read More</a>
+          </p>
+        
       
     </div>
   
@@ -161,20 +89,10 @@
 </article>
 
 
-
     
       <article id="post-modern-frontends-with-django" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
-    <div class="right-border"></div>
     
-
-    <div class="article-meta">
-      <a href="/blog/modern-frontends-with-django/" class="article-date">
-  <time datetime="2015-05-21T20:33:50.000Z" itemprop="datePublished">2015-05-22</time>
-</a>
-      
-      
-    </div>
     
       <header class="article-header">
         
@@ -186,43 +104,21 @@
 
       </header>
     
+    <div class="article-meta">
+      <a href="/blog/modern-frontends-with-django/" class="article-date">
+  <time datetime="2015-05-21T20:33:50.000Z" itemprop="datePublished">2015-05-22</time>
+</a>
+      
+      
+    </div>
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="The_problem">The problem</h2><p>Django is great but it’s frontend toolchain is stuck in the past. Imagine if someone told you to copy all your python module dependencies in your source tree and import them from there. Unthinkable, right? We’ve pip and virtualenv for that. We also have npm and bower for frontend packages but we still choose to manage frontend packages manually or write very complex wrappers over javascript tools so that we only have to deal with Python. I think this needs to change. The javascript community has come up with some awesome pieces of software. Npm is one of the best, probably the best package manager I’ve come across. Tools like grunt, gulp,<br>browserify, webpack are too good to ignore.</p>
-<h3 id="Problems_with_the_currect_approach">Problems with the currect approach</h3><ul>
-<li>Manually maintaining dependencies is a pain.</li>
-<li>No integration with managers like npm and bower.</li>
-<li>Horrible for frontend engineers and designers to work with.</li>
-<li>Backend and frontend systems are tightly coupled and sometimes limit each other.</li>
-</ul>
-<h2 id="What_about_django-npm,_pipeline_and_compressor?">What about django-npm, pipeline and compressor?</h2><p>Apps like django-pipeline and django-compressor have done a great job with static assets. I’ve been a great fan of django-pipeline actually but I hate how they take away all the transparency in order to make things a little bit magical. They are limited in what they can do by the staticfiles system. They are opaque and make it harder to debug problems. They also need companion apps for to integrate any new javascript tool like gulp or browserify. Even after having all these wrappers, the experience can be quite rough at times. Documentation and resources available for javascript tools are not directly applicable sometimes when using these wrappers. You’ve an additional layer of software and configuration to worry about or wonder how your python configuration translates to the javascript. Things can be much much better.</p>
-<h3 id="Problems_with_wrappers">Problems with wrappers</h3><ul>
-<li>The are opaque, hard to debug and slow.</li>
-<li>Limited by django’s staticfiles system.</li>
-<li>Docs, stackoverflow, blog posts, written for the javascript tools don’t directly apply to the django wrapper apps.</li>
-<li>Still limited by staticfiles.</li>
-<li>Still very tightly coupled with django.</li>
-</ul>
-<h2 id="So_should_we_abandon_staticfiles?">So should we abandon staticfiles?</h2><p>No, but we should limit it to just collecting pre-bundled static assets to the target directory or static file servers. We should not hook post-processors into it. The build process for frontend assets should be completely decoupled from staticfiles.</p>
-<h2 id="How_do_we_integrate_the_frontend_tools_with_django_then?">How do we integrate the frontend tools with django then?</h2><p>For simpler cases, we don’t even need to integrate. We can use things like gulp or grunt to compile assets and then use collectstatic to sync the builds, but we need some sort of integration to make things a bit smoother. During development, it makes sense to return 500 error code when a build fails so one knows immediately where to look for the problem. It also makes sense to block a request while a build is being compiled to make sure you don’t test older code in the browser. For production use, we can configure our frontend tools to use hashed names in the builds; It would be nice to have an easy way to get reference to hashed bundles in django. In my opinion, integration should stop here. We should not spawn processes from python, translate config in settings.py to native JS config.</p>
-<p>I suggest we use bridges, not wrappers. Instead of writing wrappers around something like webpack and spawning webpack processes form within django, we should run webpack independently and pipe the output to django. If we can come up with a standard for this, we would only have to write a single bridge application for django. Then instead of writing django apps that wrap the javascript tools, we write plugins for the tools that emit useful data to be consumed by django or any other framework.</p>
-<h2 id="webpack-bundle-tracker_+_django-webpack-loader">webpack-bundle-tracker + django-webpack-loader</h2><p><a href="https://github.com/owais/django-webpack-loader/" target="_blank">django-webpack-loader</a> and <a href="https://github.com/owais/webpack-bundle-tracker" target="_blank">webpack-bundle-tracker</a> implement a system like this. webpack-bundle-tracker plugin emits neccessary imformation about webpack’s compilation process and results so django-webpack-loader can consume it. django-webpack-loader does not care how you use webpack. You could control it from gulp, use the dev server, use the —watch mode or manually run it after every change. Head over to <a href="https://github.com/owais/django-webpack-loader/" target="_blank" rel="external">https://github.com/owais/django-webpack-loader/</a> to see how it all works or read <a href="http://owaislone.org/blog/webpack-plus-reactjs-and-django/" target="_blank">this guide</a> for setting it all up with optional live reload for react components.</p>
-<h3 id="What_this_solves">What this solves</h3><ul>
-<li>Use proper package managers like npm and bower instead of manually managing source files.</li>
-<li>Use webpack transparently without any limitations and leverage all the documentation and resources.</li>
-<li>Handle your frontend assets however you want. Run webpack in watch mode, use grunt, gulp, webpacks’ dev server or anything you desire. No limitations.</li>
-<li>Make your frontend engineers and designers happy! :)</li>
-<li>Completely decouple frontend build process from django. You could build and serve your static assets from a completely different system as long you give django access to the stats file generated by webpack-bundle-tracker.</li>
-</ul>
-<h3 id="Limitations_of_this_approach_(for_now)">Limitations of this approach (for now)</h3><ul>
-<li>Harder to store static files in app directories (totally worth it).</li>
-<li>Doesn’t integrate with static files provided by 3rd party apps yet.</li>
-<li>Need to setup your frontend toolchain manually but that is very easy most of the time.</li>
-</ul>
-<h2 id="Related_articles">Related articles</h2><ul>
-<li><a href="http://owaislone.org/blog/webpack-plus-reactjs-and-django/" target="_blank">Using Webpack transparently with Django and + reloading React components as a bonus</a> </li>
-</ul>
-
+        
+          <p class="article-more-link">
+            <a href="/blog/modern-frontends-with-django/#more">Read More</a>
+          </p>
+        
       
     </div>
   
@@ -237,20 +133,10 @@
 </article>
 
 
-
     
       <article id="post-remember-the-rhythm" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
-    <div class="right-border"></div>
     
-
-    <div class="article-meta">
-      <a href="/blog/remember-the-rhythm/" class="article-date">
-  <time datetime="2011-11-13T00:00:00.000Z" itemprop="datePublished">2011-11-13</time>
-</a>
-      
-      
-    </div>
     
       <header class="article-header">
         
@@ -262,14 +148,21 @@
 
       </header>
     
+    <div class="article-meta">
+      <a href="/blog/remember-the-rhythm/" class="article-date">
+  <time datetime="2011-11-13T00:00:00.000Z" itemprop="datePublished">2011-11-13</time>
+</a>
+      
+      
+    </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>I recently switched to Rhythmbox from Banshee and I’m loving it. It’s fast, loads up almost instantly, doesn’t consume as much resources as Bansee and doesn’t crash after every 3 songs. I do miss some features that Banshee had though like remembering the last playing song. So, I created a plugin for rhythmbox just to do that. It remembers the last playing entry (song, radio station, podcast, etc), playback time, browser filters (genre, artist and album) and playlists. It remembers these things (except playback time) even if Rhythmbox crashes for some reason.</p>
-<p>Install on Ubuntu</p>
-<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="instruction"> add-apt-repository </span>ppa:loneowais/ppa</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install remember-the-rhythm</span><br></pre></td></tr></table></figure>
-<p>For other distros, install from the <a href="https://github.com/owais/remember-the-rhythm/tarball/master" target="_blank" rel="external">tarball</a><br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make <span class="keyword">install</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="http://feeds.feedburner.com/~r/Owaislone/~4/pls0gRg_P-k" alt=""></p>
-
+        
+          <p class="article-more-link">
+            <a href="/blog/remember-the-rhythm/#more">Read More</a>
+          </p>
+        
       
     </div>
   
@@ -284,20 +177,10 @@
 </article>
 
 
-
     
       <article id="post-banshee-2.0" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
-    <div class="right-border"></div>
     
-
-    <div class="article-meta">
-      <a href="/blog/banshee-2.0/" class="article-date">
-  <time datetime="2011-04-17T00:00:00.000Z" itemprop="datePublished">2011-04-17</time>
-</a>
-      
-      
-    </div>
     
       <header class="article-header">
         
@@ -309,6 +192,13 @@
 
       </header>
     
+    <div class="article-meta">
+      <a href="/blog/banshee-2.0/" class="article-date">
+  <time datetime="2011-04-17T00:00:00.000Z" itemprop="datePublished">2011-04-17</time>
+</a>
+      
+      
+    </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>Just noticed a small but <strong>nice</strong> change in Banshee 2. Usually, our music players minimize to system tray when closing the main window so that the music keeps playing in the background. We have to manually look for a quit function in order to entirely close the app or pause the music and let the app live in memory and consume cpu cycles. Banshee 2.0 has no quit function <em>per se</em>. Closing banshee while the music is playing <span class="meta" meta_description="minimizes to systray or soundmenu on Ubuntu" meta_name=" ">hides</span> the window, otherwise quits entirely. </p>
@@ -323,20 +213,10 @@
 </article>
 
 
-
     
       <article id="post-update-gmailwatcher" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
-    <div class="right-border"></div>
     
-
-    <div class="article-meta">
-      <a href="/blog/update-gmailwatcher/" class="article-date">
-  <time datetime="2010-09-15T00:00:00.000Z" itemprop="datePublished">2010-09-15</time>
-</a>
-      
-      
-    </div>
     
       <header class="article-header">
         
@@ -348,22 +228,21 @@
 
       </header>
     
+    <div class="article-meta">
+      <a href="/blog/update-gmailwatcher/" class="article-date">
+  <time datetime="2010-09-15T00:00:00.000Z" itemprop="datePublished">2010-09-15</time>
+</a>
+      
+      
+    </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>In case you don’t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I’m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.</p>
-<h2 id="Features">Features</h2><ul>
-<li>Multiple Accounts</li>
-<li>Google Apps support</li>
-<li>Secure password storage using Gnome-Keyring</li>
-<li>Themable unread emails page</li>
-<li>Preferences sync using U1</li>
-</ul>
-<p>Right now, my target is to make it stable/usable enough in time for Maverick. I’m planning to release the first stable version and getting it into Universe for Maverick. In fact, I’ve already submitted it to <a href="http://revu.ubuntuwire.com/p/gmailwatcher" target="_blank" rel="external">REVU</a> (MOTU Advocate, Anyone?).</p>
-<h2 id="Request">Request</h2><p>I intent to spend the next few days polishing the app. This post is essentially a call for user feedback. I would like to know what you don’t like about the way GmailWatcher works. Bugs, usability issues, appearance, anything that doesn’t count as a new feature.</p>
-<h2 id="Themes">Themes</h2><p>You can also contribute some themes for the email summaries view. A GmailWatcher theme is a simple HTML page styled with CSS. It’s pretty basic right now. Once Maverick is released, I’ll add JavaScript and local media support. Take a look at <a href="http://launchpad.net/gmailwatcher-themes-extra" target="_blank" rel="external">lp:gmailwatcher-themes-extra</a> in case you would like to add a theme or two.</p>
-<h2 id="Install">Install</h2><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="instruction"> add-apt-repository </span>ppa:loneowais/ppa</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install gmailwatcher</span><br></pre></td></tr></table></figure>
-<p><img src="http://feeds.feedburner.com/~r/Owaislone/~4/1-iooiIqDJE" alt=""></p>
-
+        
+          <p class="article-more-link">
+            <a href="/blog/update-gmailwatcher/#more">Read More</a>
+          </p>
+        
       
     </div>
   
@@ -378,20 +257,10 @@
 </article>
 
 
-
     
       <article id="post-tc-90-python-27" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
-    <div class="right-border"></div>
     
-
-    <div class="article-meta">
-      <a href="/blog/tc-90-python-27/" class="article-date">
-  <time datetime="2010-08-04T00:00:00.000Z" itemprop="datePublished">2010-08-04</time>
-</a>
-      
-      
-    </div>
     
       <header class="article-header">
         
@@ -403,15 +272,21 @@
 
       </header>
     
+    <div class="article-meta">
+      <a href="/blog/tc-90-python-27/" class="article-date">
+  <time datetime="2010-08-04T00:00:00.000Z" itemprop="datePublished">2010-08-04</time>
+</a>
+      
+      
+    </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>This Saturday I’ll be delivering a workshop on the Python programming language in my college. Our university has an age old course for Computer Engineering. C is the introductory language and is taught using the Turbo C compiler from the 90s, VB 6 is considered the best way to make GIUs. It’s time to introduce my friends to 2010 in Computer Science. </p>
-<p>If this goes well, Django or PyGTK will be next.</p>
-<p>
-
-</p><h4 id="Update">Update</h4><p><span></span></p>
-<p>The workshop was successful. A lot of students showed up and really enjoyed python. \m/<br><br><img src="http://farm5.static.flickr.com/4131/5120070946_c808a3082f_z_d.jpg" alt="Python Workshop" title="Python Workshop"><br><img src="http://feeds.feedburner.com/~r/Owaislone/~4/t4u4AOJKF7w" alt=""></p>
-
+        
+          <p class="article-more-link">
+            <a href="/blog/tc-90-python-27/#more">Read More</a>
+          </p>
+        
       
     </div>
   
@@ -426,20 +301,10 @@
 </article>
 
 
-
     
       <article id="post-gmail-watcher" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
-    <div class="right-border"></div>
     
-
-    <div class="article-meta">
-      <a href="/blog/gmail-watcher/" class="article-date">
-  <time datetime="2010-07-06T00:00:00.000Z" itemprop="datePublished">2010-07-06</time>
-</a>
-      
-      
-    </div>
     
       <header class="article-header">
         
@@ -451,22 +316,21 @@
 
       </header>
     
+    <div class="article-meta">
+      <a href="/blog/gmail-watcher/" class="article-date">
+  <time datetime="2010-07-06T00:00:00.000Z" itemprop="datePublished">2010-07-06</time>
+</a>
+      
+      
+    </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>In case you don’t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I’m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.</p>
-<h2 id="Features">Features</h2><ul>
-<li>Multiple Accounts</li>
-<li>Google Apps support</li>
-<li>Secure password storage using Gnome-Keyring</li>
-<li>Themable unread emails page</li>
-<li>Preferences sync using U1</li>
-</ul>
-<p>Right now, my target is to make it stable/usable enough in time for Maverick. I’m planning to release the first stable version and getting it into Universe for Maverick. In fact, I’ve already submitted it to <a href="http://revu.ubuntuwire.com/p/gmailwatcher" target="_blank" rel="external">REVU</a> (MOTU Advocate, Anyone?).</p>
-<h2 id="Request">Request</h2><p>I intent to spend the next few days polishing the app. This post is essentially a call for user feedback. I would like to know what you don’t like about the way GmailWatcher works. Bugs, usability issues, appearance, anything that doesn’t count as a new feature.</p>
-<h2 id="Themes">Themes</h2><p>You can also contribute some themes for the email summaries view. A GmailWatcher theme is a simple HTML page styled with CSS. It’s pretty basic right now. Once Maverick is released, I’ll add JavaScript and local media support. Take a look at <a href="http://launchpad.net/gmailwatcher-themes-extra" target="_blank" rel="external">lp:gmailwatcher-themes-extra</a> in case you would like to add a theme or two.</p>
-<h2 id="Install">Install</h2><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="instruction"> add-apt-repository </span>ppa:loneowais/ppa</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install gmailwatcher</span><br></pre></td></tr></table></figure>
-<p><img src="http://feeds.feedburner.com/~r/Owaislone/~4/oeVHz0sfCKg" alt=""></p>
-
+        
+          <p class="article-more-link">
+            <a href="/blog/gmail-watcher/#more">Read More</a>
+          </p>
+        
       
     </div>
   
@@ -481,20 +345,10 @@
 </article>
 
 
-
     
       <article id="post-kargil" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
-    <div class="right-border"></div>
     
-
-    <div class="article-meta">
-      <a href="/blog/kargil/" class="article-date">
-  <time datetime="2010-06-13T00:00:00.000Z" itemprop="datePublished">2010-06-13</time>
-</a>
-      
-      
-    </div>
     
       <header class="article-header">
         
@@ -506,6 +360,13 @@
 
       </header>
     
+    <div class="article-meta">
+      <a href="/blog/kargil/" class="article-date">
+  <time datetime="2010-06-13T00:00:00.000Z" itemprop="datePublished">2010-06-13</time>
+</a>
+      
+      
+    </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://farm2.static.flickr.com/1268/4696459405_49de6bfe86_z_d.jpg" alt="Kargil" title="Kargil"></p>
@@ -525,20 +386,10 @@
 </article>
 
 
-
     
       <article id="post-foss-kashmir" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
-    <div class="right-border"></div>
     
-
-    <div class="article-meta">
-      <a href="/blog/foss-kashmir/" class="article-date">
-  <time datetime="2010-05-23T00:00:00.000Z" itemprop="datePublished">2010-05-23</time>
-</a>
-      
-      
-    </div>
     
       <header class="article-header">
         
@@ -550,6 +401,13 @@
 
       </header>
     
+    <div class="article-meta">
+      <a href="/blog/foss-kashmir/" class="article-date">
+  <time datetime="2010-05-23T00:00:00.000Z" itemprop="datePublished">2010-05-23</time>
+</a>
+      
+      
+    </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>Finally <a href="http://mirnazim.org/" target="_blank" rel="external">Mir Nazim</a> has kicked off the Kashmir FOSS mailing list. Things should only soar from here on. Really excited. Check <a href="http://fosskashmir.appspot.com" target="_blank" rel="external">http://fosskashmir.appspot.com</a>.<br><img src="http://feeds.feedburner.com/~r/Owaislone/~4/-icfGHr-vdo" alt=""></p>
@@ -568,9 +426,7 @@
 </article>
 
 
-
-    
-</section>
+    </section>
     <footer id="footer">
   
     
@@ -578,11 +434,10 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2015 Owais Lone&nbsp;
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme based on <a href="https://github.com/ppoffice/hexo-theme-minos" target="_sblank">Minos</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>
 </footer>
-
     
 
 <script src="/js/jquery.min.js"></script>

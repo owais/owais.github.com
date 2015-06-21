@@ -93,7 +93,7 @@ input,
 button {
   margin: 0;
   padding: 0;
-  font: 20px 'Lato', 'Myriad Pro', Helvetica, Arial, sans-serif;
+  font: 16px 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
 }
 input::-moz-focus-inner,
 button::-moz-focus-inner {
@@ -114,11 +114,12 @@ body,
 }
 body {
   background: #fff;
-  font: 20px 'Lato', 'Myriad Pro', Helvetica, Arial, sans-serif;
+  font: 16px 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
   -webkit-text-size-adjust: 100%;
 }
 .outer {
-  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 .outer:before,
 .outer:after {
@@ -171,7 +172,7 @@ a.article-title,
 .article-entry .gist .gist-file .gist-meta a,
 .layout-wrap-inner .category-list a,
 .tag-cloud a {
-  color: #6ebad3;
+  color: #111;
   text-decoration: none;
   border-bottom: 1px dotted transparent;
 }
@@ -269,7 +270,6 @@ a.article-title:hover,
   font-size: 14px;
   position: relative;
   border-bottom: 1px solid #ddd;
-  padding: 0 50px;
 }
 #header.mobile-on #main-nav,
 #header.mobile-on #sub-nav {
@@ -372,7 +372,7 @@ a.article-title:hover,
   float: left;
   font-size: 14px;
   background: none;
-  color: #666;
+  color: #111;
   outline: none;
 }
 .search-form-input::-webkit-search-results-decoration,
@@ -388,24 +388,12 @@ a.article-title:hover,
   cursor: pointer;
 }
 .article {
-  margin: 0;
+  margin: 50px 0;
   border-bottom: 1px solid #ddd;
 }
 .article-inner {
   margin-bottom: 15px;
   overflow: hidden;
-}
-.article-inner .right-border {
-  position: fixed;
-  top: 0;
-  left: 800px;
-  bottom: 0;
-  border-left: 1px solid #ddd;
-  z-index: -100;
-}
-.article-meta {
-  font-size: 15px;
-  padding: 50px 50px 30px 50px;
 }
 .article-meta:before,
 .article-meta:after {
@@ -419,7 +407,7 @@ a.article-title:hover,
   color: #939393;
 }
 .article-date {
-  font-weight: 600;
+  float: left;
 }
 .article-category {
   float: left;
@@ -448,23 +436,15 @@ a.article-title:hover,
 }
 .article-header {
   margin-bottom: 10px;
-  max-width: 700px;
-  padding-left: 50px;
 }
 .article-title {
   font-size: 2em;
   font-weight: 700;
   line-height: 1em;
-  max-width: 700px;
-}
-a.article-title {
-  color: #333;
-  max-width: 700px;
 }
 .article-entry {
-  color: #666;
+  color: #111;
   padding: 0;
-  text-align: justify;
 }
 .article-entry:before,
 .article-entry:after {
@@ -474,19 +454,10 @@ a.article-title {
 .article-entry:after {
   clear: both;
 }
-.article-entry code {
-  font-size: 18px;
-  line-height: 25px;
-  color: #666;
-}
-.article-entry p {
-  padding: 0 50px;
-}
 .article-entry p,
 .article-entry table {
   line-height: 1.4em;
   margin: 1.4em 0;
-  max-width: 700px;
 }
 .article-entry h1,
 .article-entry h2,
@@ -494,21 +465,15 @@ a.article-title {
 .article-entry h4,
 .article-entry h5,
 .article-entry h6 {
-  color: #333;
   font-weight: 600;
   line-height: 1.4em;
   margin: 1em 0;
-  padding: 0 50px;
-  padding-top: 20px;
-  max-width: 700px;
 }
 .article-entry ul,
 .article-entry ol,
 .article-entry dl {
   margin-top: 1.4em;
   margin-bottom: 1.4em;
-  padding: 0 50px;
-  max-width: 700px;
 }
 .article-entry img,
 .article-entry video {
@@ -535,20 +500,13 @@ a.article-title {
   padding: 10px 0;
 }
 .article-entry blockquote {
-  max-width: 700px;
-  background: #f7f7f7;
-  color: #222;
-  padding: 10px;
-  font-family: 'Lato', 'Myriad Pro', Helvetica, Arial, sans-serif;
-  font-size: 25s;
+  font-family: 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
+  font-size: 1.4em;
   margin: 1.4em 20px;
-  margin-left: 50px;
-}
-.article-entry blockquote p {
-  padding: 5px 20px;
+  text-align: center;
 }
 .article-entry blockquote footer {
-  font-size: 20px;
+  font-size: 16px;
   margin: 1.4em 0;
   font-family: font-sans;
 }
@@ -601,7 +559,6 @@ a.article-title {
   font-size: 0.85em;
   padding: 1.4em 0;
   line-height: 1.4em;
-  padding-left: 50px;
   margin: 0;
 }
 .article-footer:before,
@@ -617,7 +574,7 @@ a.article-title {
   text-decoration: none;
 }
 .article-footer a:hover {
-  color: #666;
+  color: #111;
 }
 .article-tag-list-item {
   float: left;
@@ -629,7 +586,6 @@ a.article-title {
 #article-nav {
   position: relative;
   margin: 20px 0;
-  padding: 0 50px;
 }
 #article-nav:before,
 #article-nav:after {
@@ -650,7 +606,7 @@ a.article-title {
   display: block;
 }
 .article-nav-link-wrap:hover {
-  color: #666;
+  color: #111;
 }
 @media screen and (min-width: 840px) {
   .article-nav-link-wrap {
@@ -711,7 +667,6 @@ a.article-title {
 }
 .archives-wrap {
   margin: 50px 0;
-  line-height: 28px;
 }
 .archives:before,
 .archives:after {
@@ -802,7 +757,6 @@ a.article-title {
 #footer {
   padding: 50px 0;
   text-align: center;
-  padding: 0 50px;
 }
 #footer a {
   font-weight: 600;
@@ -814,14 +768,12 @@ a.article-title {
 .article-entry pre,
 .article-entry .highlight {
   margin: 0;
-  font-size: 17px;
-  background: #002b36;
-  color: #839496;
+  font-size: 14px;
+  background: #23241f;
   padding: 15px 0;
   overflow: auto;
   color: #fff;
-  padding: 10px 50px;
-  line-height: 28px;
+  line-height: 22.4px;
 }
 .article-entry .highlight .gutter pre,
 .article-entry .gist .gist-file .gist-data .line-numbers {
@@ -881,7 +833,7 @@ a.article-title {
   text-align: right;
 }
 .article-entry .highlight .line {
-  height: 28px;
+  height: 22.4px;
 }
 .article-entry .gist {
   margin: 0;
@@ -1094,12 +1046,12 @@ pre .php .xml {
   padding: 0 !important;
   -webkit-border-radius: 0;
   border-radius: 0;
-  font-family: 'Lato', 'Myriad Pro', Helvetica, Arial, sans-serif;
+  font-family: 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
 }
 .fancybox-skin .fancybox-title .child {
   background: none;
   font-weight: 400;
-  font-size: 20px;
-  font-family: 'Lato', 'Myriad Pro', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-family: 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
   text-shadow: 1px 3px 3px rgba(0,0,0,0.5);
 }

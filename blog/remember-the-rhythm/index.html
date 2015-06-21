@@ -19,31 +19,12 @@
   
     <link rel="icon" href="/favicon.png">
   
-
-  <style>
-    
-    @font-face {
-      font-family: 'Lato';
-      font-style: normal;
-      font-weight: 400;
-      src: local('Lato Regular'), local('Lato-Regular'), url(//themes.googleusercontent.com/static/fonts/lato/v7/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
-    }
-    
-
-    @font-face {
-      font-family: 'Lato';
-      font-style: normal;
-      font-weight: 700;
-      src: local('Lato Bold'), local('Lato-Bold'), url(//themes.googleusercontent.com/static/fonts/lato/v7/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
-    }
-  </style>
-  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css" type="text/css">
   
 
 </head>
-
 <body>
   <div id="container">
     <header id="header">
@@ -63,16 +44,7 @@
 
     <section id="main" class="outer"><article id="post-remember-the-rhythm" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
-    <div class="right-border"></div>
     
-
-    <div class="article-meta">
-      <a href="/blog/remember-the-rhythm/" class="article-date">
-  <time datetime="2011-11-13T00:00:00.000Z" itemprop="datePublished">2011-11-13</time>
-</a>
-      
-      
-    </div>
     
       <header class="article-header">
         
@@ -84,9 +56,17 @@
 
       </header>
     
+    <div class="article-meta">
+      <a href="/blog/remember-the-rhythm/" class="article-date">
+  <time datetime="2011-11-13T00:00:00.000Z" itemprop="datePublished">2011-11-13</time>
+</a>
+      
+      
+    </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>I recently switched to Rhythmbox from Banshee and I’m loving it. It’s fast, loads up almost instantly, doesn’t consume as much resources as Bansee and doesn’t crash after every 3 songs. I do miss some features that Banshee had though like remembering the last playing song. So, I created a plugin for rhythmbox just to do that. It remembers the last playing entry (song, radio station, podcast, etc), playback time, browser filters (genre, artist and album) and playlists. It remembers these things (except playback time) even if Rhythmbox crashes for some reason.</p>
+<a id="more"></a>
 <p>Install on Ubuntu</p>
 <figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="instruction"> add-apt-repository </span>ppa:loneowais/ppa</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install remember-the-rhythm</span><br></pre></td></tr></table></figure>
 <p>For other distros, install from the <a href="https://github.com/owais/remember-the-rhythm/tarball/master" target="_blank" rel="external">tarball</a><br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make <span class="keyword">install</span></span><br></pre></td></tr></table></figure></p>
@@ -124,7 +104,6 @@
   
 </article>
 
-
 </section>
     <footer id="footer">
   
@@ -133,11 +112,10 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2015 Owais Lone&nbsp;
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme based on <a href="https://github.com/ppoffice/hexo-theme-minos" target="_sblank">Minos</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>
 </footer>
-
     
 
 <script src="/js/jquery.min.js"></script>

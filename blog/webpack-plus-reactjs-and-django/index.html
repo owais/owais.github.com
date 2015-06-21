@@ -24,31 +24,12 @@ Webpack is a module bundler that bundles javascript and other assets for the bro
   
     <link rel="icon" href="/favicon.png">
   
-
-  <style>
-    
-    @font-face {
-      font-family: 'Lato';
-      font-style: normal;
-      font-weight: 400;
-      src: local('Lato Regular'), local('Lato-Regular'), url(//themes.googleusercontent.com/static/fonts/lato/v7/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
-    }
-    
-
-    @font-face {
-      font-family: 'Lato';
-      font-style: normal;
-      font-weight: 700;
-      src: local('Lato Bold'), local('Lato-Bold'), url(//themes.googleusercontent.com/static/fonts/lato/v7/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
-    }
-  </style>
-  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css" type="text/css">
   
 
 </head>
-
 <body>
   <div id="container">
     <header id="header">
@@ -68,16 +49,7 @@ Webpack is a module bundler that bundles javascript and other assets for the bro
 
     <section id="main" class="outer"><article id="post-webpack-plus-reactjs-and-django" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
-    <div class="right-border"></div>
     
-
-    <div class="article-meta">
-      <a href="/blog/webpack-plus-reactjs-and-django/" class="article-date">
-  <time datetime="2015-05-22T19:01:14.000Z" itemprop="datePublished">2015-05-23</time>
-</a>
-      
-      
-    </div>
     
       <header class="article-header">
         
@@ -89,6 +61,13 @@ Webpack is a module bundler that bundles javascript and other assets for the bro
 
       </header>
     
+    <div class="article-meta">
+      <a href="/blog/webpack-plus-reactjs-and-django/" class="article-date">
+  <time datetime="2015-05-22T19:01:14.000Z" itemprop="datePublished">2015-05-23</time>
+</a>
+      
+      
+    </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>If you don’t already know <a href="http://webpack.github.io/docs/what-is-webpack.html" target="_blank" rel="external">webpack</a>, you’ve some <a href="https://egghead.io/lessons/javascript-intro-to-webpack" target="_blank">catching up to do</a>.</p>
@@ -96,6 +75,7 @@ Webpack is a module bundler that bundles javascript and other assets for the bro
 <p>Webpack is a module bundler that bundles javascript and other assets for the browser. It works really well for applications and javascript libraries and is very simple frontend build tool.</p>
 <p>- Kent C. Dodds <small> -  <a href="https://egghead.io/lessons/javascript-intro-to-webpack" target="_blank" rel="external">https://egghead.io/lessons/javascript-intro-to-webpack</a></small></p>
 </blockquote>
+<a id="more"></a>
 <h2 id="Objectives_and_reasoning">Objectives and reasoning</h2><p>We’ll be setting up webpack and keeping it decoupled from django’s staticfiles system. Read <a href="http://owaislone.org/blog/modern-frontends-with-django/" target="_blank">my earlier post</a> explaining why we we’ll be handling things this way and not integrating with staticfiles. We’ll be using <a href="https://github.com/owais/webpack-bundle-tracker" target="_blank">webpack-bundle-tracker</a> to extract information from webpack and <a href="https://github.com/owais/django-webpack-loader/" target="_blank" rel="external">django-webpack-loader</a> to use the extracted information for django integration.</p>
 <h2 id="Setting_up_webpack">Setting up webpack</h2><p>We’ll use <a href="http://npmjs.com/" target="_blank" rel="external">npm</a> to manage our frontend dependencies instead of managing them manually in one of the static files directories. You can optionally use <a href="http://bower.io/" target="_blank" rel="external">bower</a> as well in addition to npm.</p>
 <p>First let’s setup npm in the root of your django project. This will generate a file called <code>package.json</code> in your project root. It serves 2 purposes. Imagine requirements.txt and setup.py merged into one. That is package.json for npm packages. If you use the <code>--save</code> or <code>--save-dev</code> flag when installing a package, it’ll save the packages as dependencies in the package.json file. To reinstall the packages, all you need to is run <code>npm install</code>. Awesome, right? It gets better. The packages will be installed locally specific to your project under a directory called node_modules like virtualenv. To install a package globally, all you need to do is to use <code>-g</code> with npm install.</p>
@@ -176,7 +156,6 @@ Webpack is a module bundler that bundles javascript and other assets for the bro
   
 </article>
 
-
 </section>
     <footer id="footer">
   
@@ -185,11 +164,10 @@ Webpack is a module bundler that bundles javascript and other assets for the bro
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2015 Owais Lone&nbsp;
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme based on <a href="https://github.com/ppoffice/hexo-theme-minos" target="_sblank">Minos</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>
 </footer>
-
     
 
 <script src="/js/jquery.min.js"></script>
