@@ -15,7 +15,7 @@ Webpack is a module bundler that bundles javascript and other assets for the bro
 <meta property="og:description" content="If you don’t already know webpack, you’ve some catching up to do.
 
 Webpack is a module bundler that bundles javascript and other assets for the browser. It works really well for applications and javas">
-<meta property="og:updated_time" content="2015-09-02T20:44:19.000Z">
+<meta property="og:updated_time" content="2015-09-02T20:45:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Using Webpack transparently with Django + hot reloading React components as a bonus">
 <meta name="twitter:description" content="If you don’t already know webpack, you’ve some catching up to do.
@@ -135,7 +135,7 @@ Webpack is a module bundler that bundles javascript and other assets for the bro
 <p><code>collectstatic</code> will automatically pick up the newly created bundles.</p>
 <h2 id="Tip">Tip</h2><p>Typing the full path of the webpack binary is hard. We can create aliases for the above commands in our package.json to fix this.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="string">'scripts'</span>: &#123;</span><br><span class="line">  <span class="string">'build'</span>: <span class="string">'webpack --config webpack.config.js --progress --colors'</span>,</span><br><span class="line">  <span class="string">'build-production'</span>: <span class="string">'webpack --config webpack.prod.config.js --progress --colors'</span>,</span><br><span class="line">  <span class="string">'watch'</span>: <span class="string">'node server.js'</span></span><br><span class="line">&#125;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>Now we can run <code>npm run build</code>, <code>npm run build-production</code> or <code>npm watch</code>. There is no need to specify the full path of the webpack binary as NPM knows where to find it.</p>
+<p>Now we can run <code>npm run build</code>, <code>npm run build-production</code> or <code>npm run watch</code>. There is no need to specify the full path of the webpack binary as NPM knows where to find it.</p>
 
       
     </div>
