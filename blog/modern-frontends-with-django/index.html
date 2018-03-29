@@ -6,14 +6,16 @@
   <title>Let&#39;s modernize the way we handle frontend code with Django - Owais Lone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="The problemDjango is great but it’s frontend toolchain is stuck in the past. Imagine if someone told you to copy all your python module dependencies in your source tree and import them from there. Unt">
+<meta name="keywords" content="django, webpack, reactjs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Let's modernize the way we handle frontend code with Django">
+<meta property="og:title" content="Let&#39;s modernize the way we handle frontend code with Django">
 <meta property="og:url" content="https://owaislone.org/blog/modern-frontends-with-django/index.html">
 <meta property="og:site_name" content="Owais Lone">
 <meta property="og:description" content="The problemDjango is great but it’s frontend toolchain is stuck in the past. Imagine if someone told you to copy all your python module dependencies in your source tree and import them from there. Unt">
-<meta property="og:updated_time" content="2015-06-21T18:43:28.000Z">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-03-29T11:12:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Let's modernize the way we handle frontend code with Django">
+<meta name="twitter:title" content="Let&#39;s modernize the way we handle frontend code with Django">
 <meta name="twitter:description" content="The problemDjango is great but it’s frontend toolchain is stuck in the past. Imagine if someone told you to copy all your python module dependencies in your source tree and import them from there. Unt">
   
   
@@ -21,7 +23,7 @@
   
   <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
 
 </head>
@@ -65,39 +67,39 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="The_problem">The problem</h2><p>Django is great but it’s frontend toolchain is stuck in the past. Imagine if someone told you to copy all your python module dependencies in your source tree and import them from there. Unthinkable, right? We’ve pip and virtualenv for that. We also have npm and bower for frontend packages but we still choose to manage frontend packages manually or write very complex wrappers over javascript tools so that we only have to deal with Python. I think this needs to change. The javascript community has come up with some awesome pieces of software. Npm is one of the best, probably the best package manager I’ve come across. Tools like grunt, gulp,<br> browserify, webpack are too good to ignore.</p>
+        <h2 id="The-problem"><a href="#The-problem" class="headerlink" title="The problem"></a>The problem</h2><p>Django is great but it’s frontend toolchain is stuck in the past. Imagine if someone told you to copy all your python module dependencies in your source tree and import them from there. Unthinkable, right? We’ve pip and virtualenv for that. We also have npm and bower for frontend packages but we still choose to manage frontend packages manually or write very complex wrappers over javascript tools so that we only have to deal with Python. I think this needs to change. The javascript community has come up with some awesome pieces of software. Npm is one of the best, probably the best package manager I’ve come across. Tools like grunt, gulp,<br> browserify, webpack are too good to ignore.</p>
 <a id="more"></a>
-<h3 id="Problems_with_the_currect_approach">Problems with the currect approach</h3><ul>
+<h3 id="Problems-with-the-currect-approach"><a href="#Problems-with-the-currect-approach" class="headerlink" title="Problems with the currect approach"></a>Problems with the currect approach</h3><ul>
 <li>Manually maintaining dependencies is a pain.</li>
 <li>No integration with managers like npm and bower.</li>
 <li>Horrible for frontend engineers and designers to work with.</li>
 <li>Backend and frontend systems are tightly coupled and sometimes limit each other.</li>
 </ul>
-<h2 id="What_about_django-npm,_pipeline_and_compressor?">What about django-npm, pipeline and compressor?</h2><p>Apps like django-pipeline and django-compressor have done a great job with static assets. I’ve been a great fan of django-pipeline actually but I hate how they take away all the transparency in order to make things a bit magical. They are limited in what they can do by the staticfiles system. They are opaque and make it harder to debug problems. They also need companion apps for to integrate any new javascript tool like gulp or browserify. Even after having all these wrappers, the experience can be quite rough at times. Documentation and resources available for javascript tools are not directly applicable sometimes when using these wrappers. You’ve an additional layer of software and configuration to worry about or wonder how your python configuration translates to the javascript. Things can be much better.</p>
-<h3 id="Problems_with_wrappers">Problems with wrappers</h3><ul>
+<h2 id="What-about-django-npm-pipeline-and-compressor"><a href="#What-about-django-npm-pipeline-and-compressor" class="headerlink" title="What about django-npm, pipeline and compressor?"></a>What about django-npm, pipeline and compressor?</h2><p>Apps like django-pipeline and django-compressor have done a great job with static assets. I’ve been a great fan of django-pipeline actually but I hate how they take away all the transparency in order to make things a bit magical. They are limited in what they can do by the staticfiles system. They are opaque and make it harder to debug problems. They also need companion apps for to integrate any new javascript tool like gulp or browserify. Even after having all these wrappers, the experience can be quite rough at times. Documentation and resources available for javascript tools are not directly applicable sometimes when using these wrappers. You’ve an additional layer of software and configuration to worry about or wonder how your python configuration translates to the javascript. Things can be much better.</p>
+<h3 id="Problems-with-wrappers"><a href="#Problems-with-wrappers" class="headerlink" title="Problems with wrappers"></a>Problems with wrappers</h3><ul>
 <li>They are opaque, slow and hard to debug.</li>
 <li>Limited by django’s staticfiles system.</li>
 <li>Docs, stackoverflow, blog posts, written for the javascript tools don’t directly apply to the django wrapper apps.</li>
 <li>Limited by staticfiles.</li>
 <li>Very tightly coupled with django.</li>
 </ul>
-<h2 id="So_should_we_abandon_staticfiles?">So should we abandon staticfiles?</h2><p>No, but we should limit it to just collecting pre-bundled static assets to the target directory or static file servers. We should not hook post-processors into it. The build process for frontend assets should be completely decoupled from staticfiles.</p>
-<h2 id="How_do_we_integrate_the_frontend_tools_with_django_then?">How do we integrate the frontend tools with django then?</h2><p>For simpler cases, we don’t even need to integrate. We can use things like gulp or grunt to compile assets and then use collectstatic to sync the builds, but we need some sort of integration to make things a bit smoother. During development, it makes sense to return 500 error code when a build fails so one knows immediately where to look for the problem. It also makes sense to block a request while a build is being compiled to make sure you don’t test older code in the browser. For production use, we can configure our frontend tools to use hashed names in the builds; It would be nice to have an easy way to get reference to hashed bundles in django. In my opinion, integration should stop here. We should not spawn processes from python, translate config in settings.py to native JS config.</p>
+<h2 id="So-should-we-abandon-staticfiles"><a href="#So-should-we-abandon-staticfiles" class="headerlink" title="So should we abandon staticfiles?"></a>So should we abandon staticfiles?</h2><p>No, but we should limit it to just collecting pre-bundled static assets to the target directory or static file servers. We should not hook post-processors into it. The build process for frontend assets should be completely decoupled from staticfiles.</p>
+<h2 id="How-do-we-integrate-the-frontend-tools-with-django-then"><a href="#How-do-we-integrate-the-frontend-tools-with-django-then" class="headerlink" title="How do we integrate the frontend tools with django then?"></a>How do we integrate the frontend tools with django then?</h2><p>For simpler cases, we don’t even need to integrate. We can use things like gulp or grunt to compile assets and then use collectstatic to sync the builds, but we need some sort of integration to make things a bit smoother. During development, it makes sense to return 500 error code when a build fails so one knows immediately where to look for the problem. It also makes sense to block a request while a build is being compiled to make sure you don’t test older code in the browser. For production use, we can configure our frontend tools to use hashed names in the builds; It would be nice to have an easy way to get reference to hashed bundles in django. In my opinion, integration should stop here. We should not spawn processes from python, translate config in settings.py to native JS config.</p>
 <p>I suggest we use bridges, not wrappers. Instead of writing wrappers around something like webpack and spawning webpack processes form within django, we should run webpack independently and pipe the output to django. If we can come up with a standard for this, we would only have to write a single bridge application for django. Then instead of writing django apps that wrap the javascript tools, we write plugins for the tools that emit useful data to be consumed by django or any other framework.</p>
-<h2 id="webpack-bundle-tracker_+_django-webpack-loader">webpack-bundle-tracker + django-webpack-loader</h2><p><a href="https://github.com/owais/django-webpack-loader/" target="_blank">django-webpack-loader</a> and <a href="https://github.com/owais/webpack-bundle-tracker" target="_blank">webpack-bundle-tracker</a> implement a system like this. webpack-bundle-tracker plugin emits necessary information about webpack’s compilation process and results so django-webpack-loader can consume it. django-webpack-loader does not care how you use webpack. You could control it from gulp, use the dev server, use the —watch mode or manually run it after every change. Head over to <a href="https://github.com/owais/django-webpack-loader/" target="_blank" rel="external">https://github.com/owais/django-webpack-loader/</a> to see how it all works or read <a href="http://owaislone.org/blog/webpack-plus-reactjs-and-django/" target="_blank">this guide</a> for setting it all up with optional live reload for react components.</p>
-<h3 id="What_this_solves">What this solves</h3><ul>
+<h2 id="webpack-bundle-tracker-django-webpack-loader"><a href="#webpack-bundle-tracker-django-webpack-loader" class="headerlink" title="webpack-bundle-tracker + django-webpack-loader"></a>webpack-bundle-tracker + django-webpack-loader</h2><p><a href="https://github.com/owais/django-webpack-loader/" target="_blank">django-webpack-loader</a> and <a href="https://github.com/owais/webpack-bundle-tracker" target="_blank">webpack-bundle-tracker</a> implement a system like this. webpack-bundle-tracker plugin emits necessary information about webpack’s compilation process and results so django-webpack-loader can consume it. django-webpack-loader does not care how you use webpack. You could control it from gulp, use the dev server, use the –watch mode or manually run it after every change. Head over to <a href="https://github.com/owais/django-webpack-loader/" target="_blank" rel="noopener">https://github.com/owais/django-webpack-loader/</a> to see how it all works or read <a href="http://owaislone.org/blog/webpack-plus-reactjs-and-django/" target="_blank">this guide</a> for setting it all up with optional live reload for react components.</p>
+<h3 id="What-this-solves"><a href="#What-this-solves" class="headerlink" title="What this solves"></a>What this solves</h3><ul>
 <li>Use proper package managers like npm and bower instead of manually managing source files.</li>
 <li>Use webpack transparently without any limitations and leverage all the documentation and resources.</li>
 <li>Handle your frontend assets however you want. Run webpack in watch mode, use grunt, gulp, webpacks’ dev server or anything you desire. No limitations.</li>
 <li>Make your frontend engineers and designers happy! :)</li>
 <li>Completely decouple frontend build process from django. You could build and serve your static assets from a completely different system as long you give django access to the stats file generated by webpack-bundle-tracker.</li>
 </ul>
-<h3 id="Limitations_of_this_approach_(for_now)">Limitations of this approach (for now)</h3><ul>
+<h3 id="Limitations-of-this-approach-for-now"><a href="#Limitations-of-this-approach-for-now" class="headerlink" title="Limitations of this approach (for now)"></a>Limitations of this approach (for now)</h3><ul>
 <li>Harder to store static files in app directories (totally worth it).</li>
 <li>Doesn’t integrate with static files provided by 3rd party apps yet.</li>
 <li>Need to setup your frontend toolchain manually but that is very easy most of the time.</li>
 </ul>
-<h2 id="Related_articles">Related articles</h2><ul>
+<h2 id="Related-articles"><a href="#Related-articles" class="headerlink" title="Related articles"></a>Related articles</h2><ul>
 <li><a href="http://owaislone.org/blog/webpack-plus-reactjs-and-django/" target="_blank">Using Webpack transparently with Django and + reloading React components as a bonus</a> </li>
 </ul>
 
@@ -140,7 +142,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 Owais Lone&nbsp;
+      &copy; 2018 Owais Lone&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>
@@ -150,11 +152,11 @@
 <script src="/js/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
 </body>
