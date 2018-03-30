@@ -1,0 +1,81 @@
+==================================================================
+https://keybase.io/owais
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://owaislone.org
+  * I am owais (https://keybase.io/owais) on keybase.
+  * I have a public key with fingerprint 6EF9 E833 BA38 147B 2B98  D8E6 68B6 A58A BF0C 299C
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01015c342a583be2dd22a576f36aeff6bca6c260527122f5b9d90d52bfec998f9b480a",
+      "fingerprint": "6ef9e833ba38147b2b98d8e668b6a58abf0c299c",
+      "host": "keybase.io",
+      "key_id": "68b6a58abf0c299c",
+      "kid": "01015c342a583be2dd22a576f36aeff6bca6c260527122f5b9d90d52bfec998f9b480a",
+      "uid": "4704a208af597253aa2287b160410c19",
+      "username": "owais"
+    },
+    "merkle_root": {
+      "ctime": 1522395835,
+      "hash_meta": "cbd41658ad2966b57e8996d90c8bd4a92434f4af46a220413e40febf096eb57d",
+      "seqno": 2311059
+    },
+    "revoke": {
+      "sig_ids": [
+        "9250f5bb23dde7fbcc920009404344ee06899935de9c158cd2b7f2c4dd37fd170f"
+      ]
+    },
+    "service": {
+      "hostname": "owaislone.org",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1522395858,
+  "expire_in": 157680000,
+  "prev": "d534442792d329d59c6a38dfc72fa41447fa1a7f40cf01cb17ebe9324396da86",
+  "seqno": 21,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.76
+Comment: https://keybase.io/crypto
+
+yMK1AnicrVN/aFVVHH8r22wwyobaH9EflwrWG3LOueeee8/LgqRS+qEoieCsx/n5
+dvfe3n3v3rtnywYxWmBmTsl/NrRMUJAiyOqPpfZ02x+pK5FW9GOBxhhWUEj9IWH1
+vaNAoj/76/44n+/n1zlnquPmXHvLuqcerffUL7S1nDuTDOS2nvzh4g5HRnrQKexw
+ymbxYSraJGmxHGqn4CCMsKdcSoQXuNIQrQm8+sy6TBhrmVSCKcKQR3xMiPUk1xxp
+j0hrFOeB5ZIGSDjdjg2rJRPX4rCaAi0zlpvAdaVwA0x9SSQPdGAYCyQDJSEtUoRz
+BYO9UZJNgDkpErMqjOAffBQX7f0H/n/2PbBIR31EBUGBsB73iecKQUjgS8wQxUhh
+ngETE1dFvwF0tF2EiTPU7fSbuFwxxTiK0qxZlYbZOvYIcTn48iCdSHqL/SYVMKak
+pphBGk04Y9LzTcA5A18qgBXBCXWppcJSBuog7BqKrIHonBlAazCRmHo1cgrExRh5
+HBzEphGVTSaehCXoLHEKPQ4nHoLIkrhaG99KpThBCHGKQIEagxgIc9fThivsBUoT
+6VuiqNaubzX2kXWeGcrE4kaoFsmzTboxfCWqmlVRXAJLtThKIxVVYKk3TWuFrJd0
+sJZBtxtZ/JukKMOqhiMCAw0TJ2FUhZ4A+a/KvKDbMc/VwtgUwwwBOxqAc5TJmAZQ
+ag8SUOJzol3CtccVgyOmrfKJFRRT6luBhW8pUhZhJbFvpOEuVAtNi4Dd0CEGn6IE
+nNBcVaQDsXGGzjS3Lcm1tOdab7kpuzu59ltv/+dGBdeW5o4s2/B0wr9f886B8PCP
+V19gZPzFcwuVqYmO5U+8+tsb06Ntayc/2vU43/LIxcf2f0DXz0zcNXdl04N7+hrD
+J/x3x1jhwp765c+Pf02TocKVdacfeOmObfXTowcfPjr/84pLu5sbotYe3tz8yfTs
+8Kk7l6x/8ouXm5Pf7j65ccKZa93bdfnU3kM/ja7MF0Za775n58L7U5P37Xq93PFH
+/nxX+WgjP/k7Ts8eCCfefn6m++CxqzPDy/bdtnp+/70nOq9t7LN/Fn49NDaed883
+f+n/5ivn+sjhT19Zmu989s3511aPbR5Zu3DJGT87e/3IzofihdnPNjW/K+3r3PJx
+1/IPV66Z/vK9t/pWDEZz93ttfwHjkoUw
+=y2xd
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/owais
+
+==================================================================
