@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Foss on Owais Lone</title>
+    <link>http://owaislone.org/tags/foss/</link>
+    <description>Recent content in Foss on Owais Lone</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 May 2010 05:30:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://owaislone.org/tags/foss/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>FOSS Kashmir</title>
+      <link>http://owaislone.org/blog/foss-kashmir/</link>
+      <pubDate>Sun, 23 May 2010 05:30:00 +0800</pubDate>
+      
+      <guid>http://owaislone.org/blog/foss-kashmir/</guid>
+      <description>Finally Mir Nazim has kicked off the Kashmir FOSS mailing list. Things should only soar from here on. Really excited. Check http://fosskashmir.appspot.com. </description>
+    </item>
+    
+  </channel>
+</rss>

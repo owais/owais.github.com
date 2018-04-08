@@ -158,6 +158,16 @@ body {
   background-position: left center;
   background-repeat: no-repeat;
 }
+.logo-text {
+  width: auto;
+  color: #000;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 57px;
+  margin-right: 25px;
+  text-decoration: none;
+  background-image: none;
+}
 .article-meta a,
 a.article-title,
 .article-entry a,
@@ -312,7 +322,7 @@ a.article-title:hover,
 #main-nav-toggle {
   display: none;
   font-size: 16px;
-  padding-left: 0;
+  margin-left: -15px;
   font-family: FontAwesome;
 }
 #main-nav-toggle:before {
@@ -329,7 +339,7 @@ a.article-title:hover,
 @media screen and (max-width: 839px) {
   #logo {
     float: none;
-    width: 100%;
+    margin: 0 auto;
     display: block;
     background-position: center;
   }
@@ -661,6 +671,40 @@ a.article-title:hover,
   display: block;
   max-width: 100%;
   margin: 0 auto;
+}
+.article-toc {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 110px;
+  font-size: 0.9em;
+  width: 260px;
+  margin-left: 400px;
+  padding-left: 20px;
+  overflow-y: auto;
+  line-height: 1.4em;
+  max-height: 85%;
+}
+.article-toc h3 {
+  font-weight: bold;
+  margin-left: 20px;
+}
+.article-toc li {
+  list-style: none;
+  margin-left: 20px;
+  margin-top: 2px;
+}
+.article-toc li a {
+  color: #000;
+  text-decoration: none;
+}
+.article-toc li a.active {
+  font-weight: bold;
+}
+@media screen and (min-width: 1400px) {
+  .article-toc {
+    display: block;
+  }
 }
 #comments {
   margin: 50px 0;

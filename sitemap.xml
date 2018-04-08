@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://owaislone.org/blog/webpack-plus-reactjs-and-django/</loc>
+    <lastmod>2015-05-23T00:31:14+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/blog/modern-frontends-with-django/</loc>
+    <lastmod>2015-05-22T02:03:50+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/blog/remember-the-rhythm/</loc>
+    <lastmod>2011-11-13T05:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/blog/banshee-2/</loc>
+    <lastmod>2011-04-17T05:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/blog/update-gmailwatcher/</loc>
+    <lastmod>2010-09-15T05:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/blog/tc-90-python-27/</loc>
+    <lastmod>2010-08-04T05:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/blog/gmail-watcher/</loc>
+    <lastmod>2010-07-06T05:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/blog/kargil/</loc>
+    <lastmod>2010-06-13T05:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/blog/foss-kashmir/</loc>
+    <lastmod>2010-05-23T05:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/about/</loc>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/blog/</loc>
+    <lastmod>2015-05-23T00:31:14+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/tags/community/</loc>
+    <lastmod>2010-08-04T05:30:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/tags/django/</loc>
+    <lastmod>2015-05-23T00:31:14+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/tags/foss/</loc>
+    <lastmod>2010-05-23T05:30:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/tags/gmailwatcher/</loc>
+    <lastmod>2010-09-15T05:30:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/tags/kashmir/</loc>
+    <lastmod>2010-06-13T05:30:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/</loc>
+    <lastmod>2015-05-23T00:31:14+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/tags/photos/</loc>
+    <lastmod>2010-06-13T05:30:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/tags/projects/</loc>
+    <lastmod>2011-11-13T05:30:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/tags/reactjs/</loc>
+    <lastmod>2015-05-23T00:31:14+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/resume/</loc>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/tags/</loc>
+    <lastmod>2010-08-04T05:30:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/tags/talks/</loc>
+    <lastmod>2010-08-04T05:30:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/tags/ubuntu/</loc>
+    <lastmod>2010-09-15T05:30:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://owaislone.org/tags/webpack/</loc>
+    <lastmod>2015-05-23T00:31:14+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

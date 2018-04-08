@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Owais Lone</title>
+    <link>http://owaislone.org/tags/</link>
+    <description>Recent content in Tags on Owais Lone</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 04 Aug 2010 05:30:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://owaislone.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Community</title>
+      <link>http://owaislone.org/tags/community/</link>
+      <pubDate>Wed, 04 Aug 2010 05:30:00 +0800</pubDate>
+      
+      <guid>http://owaislone.org/tags/community/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Django</title>
+      <link>http://owaislone.org/tags/django/</link>
+      <pubDate>Sat, 23 May 2015 00:31:14 +0800</pubDate>
+      
+      <guid>http://owaislone.org/tags/django/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Foss</title>
+      <link>http://owaislone.org/tags/foss/</link>
+      <pubDate>Sun, 23 May 2010 05:30:00 +0800</pubDate>
+      
+      <guid>http://owaislone.org/tags/foss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gmailwatcher</title>
+      <link>http://owaislone.org/tags/gmailwatcher/</link>
+      <pubDate>Wed, 15 Sep 2010 05:30:00 +0800</pubDate>
+      
+      <guid>http://owaislone.org/tags/gmailwatcher/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kashmir</title>
+      <link>http://owaislone.org/tags/kashmir/</link>
+      <pubDate>Sun, 13 Jun 2010 05:30:00 +0800</pubDate>
+      
+      <guid>http://owaislone.org/tags/kashmir/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Photos</title>
+      <link>http://owaislone.org/tags/photos/</link>
+      <pubDate>Sun, 13 Jun 2010 05:30:00 +0800</pubDate>
+      
+      <guid>http://owaislone.org/tags/photos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>http://owaislone.org/tags/projects/</link>
+      <pubDate>Sun, 13 Nov 2011 05:30:00 +0800</pubDate>
+      
+      <guid>http://owaislone.org/tags/projects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reactjs</title>
+      <link>http://owaislone.org/tags/reactjs/</link>
+      <pubDate>Sat, 23 May 2015 00:31:14 +0800</pubDate>
+      
+      <guid>http://owaislone.org/tags/reactjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Talks</title>
+      <link>http://owaislone.org/tags/talks/</link>
+      <pubDate>Wed, 04 Aug 2010 05:30:00 +0800</pubDate>
+      
+      <guid>http://owaislone.org/tags/talks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>http://owaislone.org/tags/ubuntu/</link>
+      <pubDate>Wed, 15 Sep 2010 05:30:00 +0800</pubDate>
+      
+      <guid>http://owaislone.org/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Webpack</title>
+      <link>http://owaislone.org/tags/webpack/</link>
+      <pubDate>Sat, 23 May 2015 00:31:14 +0800</pubDate>
+      
+      <guid>http://owaislone.org/tags/webpack/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
