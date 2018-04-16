@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Owais Lone</title>
-    <link>http://owaislone.org/tags/projects/</link>
+    <link>http://owais.lone.pw/tags/projects/</link>
     <description>Recent content in Projects on Owais Lone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 13 Nov 2011 05:30:00 +0800</lastBuildDate>
     
-	<atom:link href="http://owaislone.org/tags/projects/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://owais.lone.pw/tags/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Remember The Rhythm</title>
-      <link>http://owaislone.org/blog/remember-the-rhythm/</link>
+      <link>http://owais.lone.pw/blog/remember-the-rhythm/</link>
       <pubDate>Sun, 13 Nov 2011 05:30:00 +0800</pubDate>
       
-      <guid>http://owaislone.org/blog/remember-the-rhythm/</guid>
+      <guid>http://owais.lone.pw/blog/remember-the-rhythm/</guid>
       <description>I recently switched to Rhythmbox from Banshee and I&amp;rsquo;m loving it. It&amp;rsquo;s fast, loads up almost instantly, doesn&amp;rsquo;t consume as much resources as Bansee and doesn&amp;rsquo;t crash after every 3 songs. I do miss some features that Banshee had though like remembering the last playing song. So, I created a plugin for rhythmbox just to do that. It remembers the last playing entry (song, radio station, podcast, etc), playback time, browser filters (genre, artist and album) and playlists.</description>
     </item>
     
     <item>
       <title>An Update on GmailWatcher</title>
-      <link>http://owaislone.org/blog/update-gmailwatcher/</link>
+      <link>http://owais.lone.pw/blog/update-gmailwatcher/</link>
       <pubDate>Wed, 15 Sep 2010 05:30:00 +0800</pubDate>
       
-      <guid>http://owaislone.org/blog/update-gmailwatcher/</guid>
+      <guid>http://owais.lone.pw/blog/update-gmailwatcher/</guid>
       <description>In case you don&amp;rsquo;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&amp;rsquo;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
 Features  Multiple Accounts Google Apps support Secure password storage using Gnome-Keyring Themable unread emails page Preferences sync using U1  Right now, my target is to make it stable/usable enough in time for Maverick.</description>
     </item>
     
     <item>
       <title>Announcing GmailWatcher</title>
-      <link>http://owaislone.org/blog/gmail-watcher/</link>
+      <link>http://owais.lone.pw/blog/gmail-watcher/</link>
       <pubDate>Tue, 06 Jul 2010 05:30:00 +0800</pubDate>
       
-      <guid>http://owaislone.org/blog/gmail-watcher/</guid>
+      <guid>http://owais.lone.pw/blog/gmail-watcher/</guid>
       <description>In case you don&amp;rsquo;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&amp;rsquo;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
 Features  Multiple Accounts Google Apps support Secure password storage using Gnome-Keyring Themable unread emails page Preferences sync using U1  Right now, my target is to make it stable/usable enough in time for Maverick.</description>
     </item>
