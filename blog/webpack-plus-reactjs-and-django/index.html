@@ -24,7 +24,7 @@
     <meta property="og:url" content="https://owais.lone.pw/blog/webpack-plus-reactjs-and-django/" />
     <meta property="og:site_name" content="Owais Lone" />
     
-    <meta property="og:image" content="https://owais.lone.pw/blog/webpack-loader.jpg" />
+    <meta property="og:image" content="https://owais.lone.pw/blog/webpack-django.jpg" />
     
 
         <meta name="twitter:creator" content="@owaislone">
@@ -32,7 +32,7 @@
     <meta name="twitter:title" content="Using Webpack transparently with Django &#43; hot reloading React components as a bonus" />
     <meta name="twitter:description" content="Learn how to use Django transparently with webpack. Keep your frontend build pipeline de-coupled from your Django project to get the best of both worlds." />
     
-    <meta name="twitter:image" content="https://owais.lone.pw/blog/webpack-loader.jpg" />
+    <meta name="twitter:image" content="https://owais.lone.pw/blog/webpack-django.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     
     <meta name="twitter:label1" value="Reading Time" />
@@ -74,6 +74,9 @@
         </div>
     </div>
 </header>
+    
+    <img src="https://owais.lone.pw//blog/webpack-django.jpg" class="article-banner"/>
+    
     <section id="main" class="outer">
         <article class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
@@ -540,52 +543,6 @@ module.exports = config
         </div>
 
         
-        
-        <div class="article-toc" >
-            <h3>Contents</h3>
-            <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#objectives-and-reasoning">Objectives and reasoning</a></li>
-<li><a href="#setting-up-webpack">Setting up webpack</a>
-<ul>
-<li><a href="#npm-dependencies">Npm dependencies</a></li>
-<li><a href="#save-vs-save-dev">save vs save-dev</a></li>
-<li><a href="#create-webpack-config">Create webpack config</a></li>
-<li><a href="#compiling-our-first-bundle">Compiling our first bundle</a></li>
-<li><a href="#watch-mode">Watch mode</a></li>
-</ul></li>
-<li><a href="#example-react-app">Example react app</a></li>
-<li><a href="#django-integration">Django integration</a>
-<ul>
-<li><a href="#requirements">Requirements</a></li>
-<li><a href="#configuration">Configuration</a>
-<ul>
-<li><a href="#settings-py">settings.py</a></li>
-</ul></li>
-<li><a href="#usage">Usage</a>
-<ul>
-<li><a href="#in-templates">In templates</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#bonus-live-editing-react-components">Bonus: Live editing react components</a>
-<ul>
-<li><a href="#requirements-1">Requirements</a></li>
-</ul></li>
-<li><a href="#production-environments">Production environments</a></li>
-<li><a href="#tip">Tip</a></li>
-</ul></li>
-</ul>
-</nav>
-        </div>
-        
-        
-
-        
-
-
-        
         <footer class="article-footer">
             <ul class="article-tag-list">
                 
@@ -609,14 +566,19 @@ module.exports = config
         
     </div>
     <nav id="article-nav">
-    
-    
-    <a href="/blog/modern-frontends-with-django/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">Let&#39;s modernize the way we handle frontend code with Django&nbsp;<span>&gt;</span></div>
-    </a>
-    
 </nav>
+
 </article>
+
+
+
+<h3>See Also</h3>
+<ul>
+	
+	<li><a href="/blog/modern-frontends-with-django/">Let&#39;s modernize the way we handle frontend code with Django</a></li>
+	
+</ul>
+
 
         
     </section>
@@ -624,7 +586,7 @@ module.exports = config
     <div class="outer">
         <div id="footer-info" class="inner">
             &copy; 2018 Owais Lone&nbsp;
-            Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/carsonip/hugo-theme-minos">Minos</a>
+            Powered by <a href="https://gohugo.io" target="_blank">Hugo</a>. Theme based on <a href="https://github.com/owais/hugo-theme-minos">Minos</a>
         </div>
     </div>
     
@@ -645,6 +607,7 @@ module.exports = config
         });
     </script>
 </footer>
+
 </div>
 </body>
 </html>
