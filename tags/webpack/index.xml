@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Webpack on Owais Lone</title>
-    <link>http://owais.lone.pw/tags/webpack/</link>
+    <link>https://owais.lone.pw/tags/webpack/</link>
     <description>Recent content in Webpack on Owais Lone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 23 May 2015 00:31:14 +0800</lastBuildDate>
     
-	<atom:link href="http://owais.lone.pw/tags/webpack/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://owais.lone.pw/tags/webpack/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Using Webpack transparently with Django &#43; hot reloading React components as a bonus</title>
-      <link>http://owais.lone.pw/blog/webpack-plus-reactjs-and-django/</link>
+      <link>https://owais.lone.pw/blog/webpack-plus-reactjs-and-django/</link>
       <pubDate>Sat, 23 May 2015 00:31:14 +0800</pubDate>
       
-      <guid>http://owais.lone.pw/blog/webpack-plus-reactjs-and-django/</guid>
+      <guid>https://owais.lone.pw/blog/webpack-plus-reactjs-and-django/</guid>
       <description>If you don&amp;rsquo;t already know webpack, you&amp;rsquo;ve some catching up to do.
  Webpack is a module bundler that bundles javascript and other assets for the browser. It works really well for applications and javascript libraries and is very simple frontend build tool.
 - Kent C. Dodds  - https://egghead.io/lessons/javascript-intro-to-webpack
@@ -25,10 +25,10 @@
     
     <item>
       <title>Let&#39;s modernize the way we handle frontend code with Django</title>
-      <link>http://owais.lone.pw/blog/modern-frontends-with-django/</link>
+      <link>https://owais.lone.pw/blog/modern-frontends-with-django/</link>
       <pubDate>Fri, 22 May 2015 02:03:50 +0800</pubDate>
       
-      <guid>http://owais.lone.pw/blog/modern-frontends-with-django/</guid>
+      <guid>https://owais.lone.pw/blog/modern-frontends-with-django/</guid>
       <description>The problem Django is great but it&amp;rsquo;s frontend toolchain is stuck in the past. Imagine if someone told you to copy all your python module dependencies in your source tree and import them from there. Unthinkable, right? We&amp;rsquo;ve pip and virtualenv for that. We also have npm and bower for frontend packages but we still choose to manage frontend packages manually or write very complex wrappers over javascript tools so that we only have to deal with Python.</description>
     </item>
     

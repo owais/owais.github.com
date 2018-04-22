@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gmailwatcher on Owais Lone</title>
-    <link>http://owais.lone.pw/tags/gmailwatcher/</link>
+    <link>https://owais.lone.pw/tags/gmailwatcher/</link>
     <description>Recent content in Gmailwatcher on Owais Lone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 15 Sep 2010 05:30:00 +0800</lastBuildDate>
     
-	<atom:link href="http://owais.lone.pw/tags/gmailwatcher/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://owais.lone.pw/tags/gmailwatcher/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>An Update on GmailWatcher</title>
-      <link>http://owais.lone.pw/blog/update-gmailwatcher/</link>
+      <link>https://owais.lone.pw/blog/update-gmailwatcher/</link>
       <pubDate>Wed, 15 Sep 2010 05:30:00 +0800</pubDate>
       
-      <guid>http://owais.lone.pw/blog/update-gmailwatcher/</guid>
+      <guid>https://owais.lone.pw/blog/update-gmailwatcher/</guid>
       <description>In case you don&amp;rsquo;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&amp;rsquo;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
 Features  Multiple Accounts Google Apps support Secure password storage using Gnome-Keyring Themable unread emails page Preferences sync using U1  Right now, my target is to make it stable/usable enough in time for Maverick.</description>
     </item>
     
     <item>
       <title>Announcing GmailWatcher</title>
-      <link>http://owais.lone.pw/blog/gmail-watcher/</link>
+      <link>https://owais.lone.pw/blog/gmail-watcher/</link>
       <pubDate>Tue, 06 Jul 2010 05:30:00 +0800</pubDate>
       
-      <guid>http://owais.lone.pw/blog/gmail-watcher/</guid>
+      <guid>https://owais.lone.pw/blog/gmail-watcher/</guid>
       <description>In case you don&amp;rsquo;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&amp;rsquo;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
 Features  Multiple Accounts Google Apps support Secure password storage using Gnome-Keyring Themable unread emails page Preferences sync using U1  Right now, my target is to make it stable/usable enough in time for Maverick.</description>
     </item>

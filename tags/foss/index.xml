@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Foss on Owais Lone</title>
-    <link>http://owais.lone.pw/tags/foss/</link>
+    <link>https://owais.lone.pw/tags/foss/</link>
     <description>Recent content in Foss on Owais Lone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 23 May 2010 05:30:00 +0800</lastBuildDate>
     
-	<atom:link href="http://owais.lone.pw/tags/foss/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://owais.lone.pw/tags/foss/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>FOSS Kashmir</title>
-      <link>http://owais.lone.pw/blog/foss-kashmir/</link>
+      <link>https://owais.lone.pw/blog/foss-kashmir/</link>
       <pubDate>Sun, 23 May 2010 05:30:00 +0800</pubDate>
       
-      <guid>http://owais.lone.pw/blog/foss-kashmir/</guid>
+      <guid>https://owais.lone.pw/blog/foss-kashmir/</guid>
       <description>Finally Mir Nazim has kicked off the Kashmir FOSS mailing list. Things should only soar from here on. Really excited. Check http://fosskashmir.appspot.com. </description>
     </item>
     

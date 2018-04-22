@@ -2,111 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Owais Lone</title>
-    <link>http://owais.lone.pw/tags/</link>
+    <link>https://owais.lone.pw/tags/</link>
     <description>Recent content in Tags on Owais Lone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 04 Aug 2010 05:30:00 +0800</lastBuildDate>
     
-	<atom:link href="http://owais.lone.pw/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://owais.lone.pw/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Community</title>
-      <link>http://owais.lone.pw/tags/community/</link>
+      <link>https://owais.lone.pw/tags/community/</link>
       <pubDate>Wed, 04 Aug 2010 05:30:00 +0800</pubDate>
       
-      <guid>http://owais.lone.pw/tags/community/</guid>
+      <guid>https://owais.lone.pw/tags/community/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Django</title>
-      <link>http://owais.lone.pw/tags/django/</link>
+      <link>https://owais.lone.pw/tags/django/</link>
       <pubDate>Sat, 23 May 2015 00:31:14 +0800</pubDate>
       
-      <guid>http://owais.lone.pw/tags/django/</guid>
+      <guid>https://owais.lone.pw/tags/django/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Foss</title>
-      <link>http://owais.lone.pw/tags/foss/</link>
+      <link>https://owais.lone.pw/tags/foss/</link>
       <pubDate>Sun, 23 May 2010 05:30:00 +0800</pubDate>
       
-      <guid>http://owais.lone.pw/tags/foss/</guid>
+      <guid>https://owais.lone.pw/tags/foss/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Gmailwatcher</title>
-      <link>http://owais.lone.pw/tags/gmailwatcher/</link>
+      <link>https://owais.lone.pw/tags/gmailwatcher/</link>
       <pubDate>Wed, 15 Sep 2010 05:30:00 +0800</pubDate>
       
-      <guid>http://owais.lone.pw/tags/gmailwatcher/</guid>
+      <guid>https://owais.lone.pw/tags/gmailwatcher/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Kashmir</title>
-      <link>http://owais.lone.pw/tags/kashmir/</link>
+      <link>https://owais.lone.pw/tags/kashmir/</link>
       <pubDate>Sun, 13 Jun 2010 05:30:00 +0800</pubDate>
       
-      <guid>http://owais.lone.pw/tags/kashmir/</guid>
+      <guid>https://owais.lone.pw/tags/kashmir/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Photos</title>
-      <link>http://owais.lone.pw/tags/photos/</link>
+      <link>https://owais.lone.pw/tags/photos/</link>
       <pubDate>Sun, 13 Jun 2010 05:30:00 +0800</pubDate>
       
-      <guid>http://owais.lone.pw/tags/photos/</guid>
+      <guid>https://owais.lone.pw/tags/photos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Projects</title>
-      <link>http://owais.lone.pw/tags/projects/</link>
+      <link>https://owais.lone.pw/tags/projects/</link>
       <pubDate>Sun, 13 Nov 2011 05:30:00 +0800</pubDate>
       
-      <guid>http://owais.lone.pw/tags/projects/</guid>
+      <guid>https://owais.lone.pw/tags/projects/</guid>
       <description></description>
     </item>
     
     <item>
       <title>React</title>
-      <link>http://owais.lone.pw/tags/react/</link>
+      <link>https://owais.lone.pw/tags/react/</link>
       <pubDate>Sat, 23 May 2015 00:31:14 +0800</pubDate>
       
-      <guid>http://owais.lone.pw/tags/react/</guid>
+      <guid>https://owais.lone.pw/tags/react/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Talks</title>
-      <link>http://owais.lone.pw/tags/talks/</link>
+      <link>https://owais.lone.pw/tags/talks/</link>
       <pubDate>Wed, 04 Aug 2010 05:30:00 +0800</pubDate>
       
-      <guid>http://owais.lone.pw/tags/talks/</guid>
+      <guid>https://owais.lone.pw/tags/talks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ubuntu</title>
-      <link>http://owais.lone.pw/tags/ubuntu/</link>
+      <link>https://owais.lone.pw/tags/ubuntu/</link>
       <pubDate>Wed, 15 Sep 2010 05:30:00 +0800</pubDate>
       
-      <guid>http://owais.lone.pw/tags/ubuntu/</guid>
+      <guid>https://owais.lone.pw/tags/ubuntu/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Webpack</title>
-      <link>http://owais.lone.pw/tags/webpack/</link>
+      <link>https://owais.lone.pw/tags/webpack/</link>
       <pubDate>Sat, 23 May 2015 00:31:14 +0800</pubDate>
       
-      <guid>http://owais.lone.pw/tags/webpack/</guid>
+      <guid>https://owais.lone.pw/tags/webpack/</guid>
       <description></description>
     </item>
     
