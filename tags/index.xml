@@ -6,19 +6,10 @@
     <description>Recent content in Tags on Owais Lone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Aug 2010 05:30:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 23 May 2015 00:31:14 +0800</lastBuildDate>
     
 	<atom:link href="https://owais.lone.pw/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Community</title>
-      <link>https://owais.lone.pw/tags/community/</link>
-      <pubDate>Wed, 04 Aug 2010 05:30:00 +0800</pubDate>
-      
-      <guid>https://owais.lone.pw/tags/community/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Django</title>
@@ -30,11 +21,29 @@
     </item>
     
     <item>
-      <title>Foss</title>
-      <link>https://owais.lone.pw/tags/foss/</link>
-      <pubDate>Sun, 23 May 2010 05:30:00 +0800</pubDate>
+      <title>React</title>
+      <link>https://owais.lone.pw/tags/react/</link>
+      <pubDate>Sat, 23 May 2015 00:31:14 +0800</pubDate>
       
-      <guid>https://owais.lone.pw/tags/foss/</guid>
+      <guid>https://owais.lone.pw/tags/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Webpack</title>
+      <link>https://owais.lone.pw/tags/webpack/</link>
+      <pubDate>Sat, 23 May 2015 00:31:14 +0800</pubDate>
+      
+      <guid>https://owais.lone.pw/tags/webpack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://owais.lone.pw/tags/projects/</link>
+      <pubDate>Sun, 13 Nov 2011 05:30:00 +0800</pubDate>
+      
+      <guid>https://owais.lone.pw/tags/projects/</guid>
       <description></description>
     </item>
     
@@ -44,6 +53,33 @@
       <pubDate>Wed, 15 Sep 2010 05:30:00 +0800</pubDate>
       
       <guid>https://owais.lone.pw/tags/gmailwatcher/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>https://owais.lone.pw/tags/ubuntu/</link>
+      <pubDate>Wed, 15 Sep 2010 05:30:00 +0800</pubDate>
+      
+      <guid>https://owais.lone.pw/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Community</title>
+      <link>https://owais.lone.pw/tags/community/</link>
+      <pubDate>Wed, 04 Aug 2010 05:30:00 +0800</pubDate>
+      
+      <guid>https://owais.lone.pw/tags/community/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Talks</title>
+      <link>https://owais.lone.pw/tags/talks/</link>
+      <pubDate>Wed, 04 Aug 2010 05:30:00 +0800</pubDate>
+      
+      <guid>https://owais.lone.pw/tags/talks/</guid>
       <description></description>
     </item>
     
@@ -66,47 +102,11 @@
     </item>
     
     <item>
-      <title>Projects</title>
-      <link>https://owais.lone.pw/tags/projects/</link>
-      <pubDate>Sun, 13 Nov 2011 05:30:00 +0800</pubDate>
+      <title>FOSS</title>
+      <link>https://owais.lone.pw/tags/foss/</link>
+      <pubDate>Sun, 23 May 2010 05:30:00 +0800</pubDate>
       
-      <guid>https://owais.lone.pw/tags/projects/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>React</title>
-      <link>https://owais.lone.pw/tags/react/</link>
-      <pubDate>Sat, 23 May 2015 00:31:14 +0800</pubDate>
-      
-      <guid>https://owais.lone.pw/tags/react/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Talks</title>
-      <link>https://owais.lone.pw/tags/talks/</link>
-      <pubDate>Wed, 04 Aug 2010 05:30:00 +0800</pubDate>
-      
-      <guid>https://owais.lone.pw/tags/talks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ubuntu</title>
-      <link>https://owais.lone.pw/tags/ubuntu/</link>
-      <pubDate>Wed, 15 Sep 2010 05:30:00 +0800</pubDate>
-      
-      <guid>https://owais.lone.pw/tags/ubuntu/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Webpack</title>
-      <link>https://owais.lone.pw/tags/webpack/</link>
-      <pubDate>Sat, 23 May 2015 00:31:14 +0800</pubDate>
-      
-      <guid>https://owais.lone.pw/tags/webpack/</guid>
+      <guid>https://owais.lone.pw/tags/foss/</guid>
       <description></description>
     </item>
     
