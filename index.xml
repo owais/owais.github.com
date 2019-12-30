@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Owais Lone</title>
@@ -17,10 +17,10 @@
       <pubDate>Sat, 23 May 2015 00:31:14 +0800</pubDate>
       
       <guid>https://owais.lone.pw/blog/webpack-plus-reactjs-and-django/</guid>
-      <description>If you don&amp;rsquo;t already know webpack, you&amp;rsquo;ve some catching up to do.
+      <description>If you don&#39;t already know webpack, you&#39;ve some catching up to do.
  Webpack is a module bundler that bundles javascript and other assets for the browser. It works really well for applications and javascript libraries and is very simple frontend build tool.
-- Kent C. Dodds  - https://egghead.io/lessons/javascript-intro-to-webpack
- Objectives and reasoning We&amp;rsquo;ll be setting up webpack and keeping it decoupled from django&amp;rsquo;s staticfiles system. Read my earlier post explaining why we&amp;rsquo;ll be handling things this way and not integrating with staticfiles.</description>
+- Kent C. Dodds - https://egghead.io/lessons/javascript-intro-to-webpack&amp;lt;/small&amp;gt;
+ Objectives and reasoning We&#39;ll be setting up webpack and keeping it decoupled from django&#39;s staticfiles system. Read my earlier postexplaining why we&#39;ll be handling things this way and not integrating with staticfiles.</description>
     </item>
     
     <item>
@@ -29,7 +29,7 @@
       <pubDate>Fri, 22 May 2015 02:03:50 +0800</pubDate>
       
       <guid>https://owais.lone.pw/blog/modern-frontends-with-django/</guid>
-      <description>The problem Django is great but it&amp;rsquo;s frontend toolchain is stuck in the past. Imagine if someone told you to copy all your python module dependencies in your source tree and import them from there. Unthinkable, right? We&amp;rsquo;ve pip and virtualenv for that. We also have npm and bower for frontend packages but we still choose to manage frontend packages manually or write very complex wrappers over javascript tools so that we only have to deal with Python.</description>
+      <description>The problem Django is great but it&#39;s frontend toolchain is stuck in the past. Imagine if someone told you to copy all your python module dependencies in your source tree and import them from there. Unthinkable, right? We&#39;ve pip and virtualenv for that. We also have npm and bower for frontend packages but we still choose to manage frontend packages manually or write very complex wrappers over javascript tools so that we only have to deal with Python.</description>
     </item>
     
     <item>
@@ -38,7 +38,7 @@
       <pubDate>Sun, 13 Nov 2011 05:30:00 +0800</pubDate>
       
       <guid>https://owais.lone.pw/blog/remember-the-rhythm/</guid>
-      <description>I recently switched to Rhythmbox from Banshee and I&amp;rsquo;m loving it. It&amp;rsquo;s fast, loads up almost instantly, doesn&amp;rsquo;t consume as much resources as Bansee and doesn&amp;rsquo;t crash after every 3 songs. I do miss some features that Banshee had though like remembering the last playing song. So, I created a plugin for rhythmbox just to do that. It remembers the last playing entry (song, radio station, podcast, etc), playback time, browser filters (genre, artist and album) and playlists.</description>
+      <description>I recently switched to Rhythmbox from Banshee and I&#39;m loving it. It&#39;s fast, loads up almost instantly, doesn&#39;t consume as much resources as Bansee and doesn&#39;t crash after every 3 songs. I do miss some features that Banshee had though like remembering the last playing song. So, I created a plugin for rhythmbox just to do that. It remembers the last playing entry (song, radio station, podcast, etc), playback time, browser filters (genre, artist and album) and playlists.</description>
     </item>
     
     <item>
@@ -56,7 +56,7 @@
       <pubDate>Wed, 15 Sep 2010 05:30:00 +0800</pubDate>
       
       <guid>https://owais.lone.pw/blog/update-gmailwatcher/</guid>
-      <description>In case you don&amp;rsquo;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&amp;rsquo;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
+      <description>In case you don&#39;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&#39;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
 Features  Multiple Accounts Google Apps support Secure password storage using Gnome-Keyring Themable unread emails page Preferences sync using U1  Right now, my target is to make it stable/usable enough in time for Maverick.</description>
     </item>
     
@@ -66,7 +66,7 @@ Features  Multiple Accounts Google Apps support Secure password storage using Gn
       <pubDate>Wed, 04 Aug 2010 05:30:00 +0800</pubDate>
       
       <guid>https://owais.lone.pw/blog/tc-90-python-27/</guid>
-      <description>This Saturday I&amp;rsquo;ll be delivering a workshop on the Python programming language in my college. Our university has an age old course for Computer Engineering. C is the introductory language and is taught using the Turbo C compiler from the 90s, VB 6 is considered the best way to make GIUs. It&amp;rsquo;s time to introduce my friends to 2010 in Computer Science.
+      <description>This Saturday I&#39;ll be delivering a workshop on the Python programming language in my college. Our university has an age old course for Computer Engineering. C is the introductory language and is taught using the Turbo C compiler from the 90s, VB 6 is considered the best way to make GIUs. It&#39;s time to introduce my friends to 2010 in Computer Science.
 If this goes well, Django or PyGTK will be next.</description>
     </item>
     
@@ -76,7 +76,7 @@ If this goes well, Django or PyGTK will be next.</description>
       <pubDate>Tue, 06 Jul 2010 05:30:00 +0800</pubDate>
       
       <guid>https://owais.lone.pw/blog/gmail-watcher/</guid>
-      <description>In case you don&amp;rsquo;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&amp;rsquo;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
+      <description>In case you don&#39;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&#39;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
 Features  Multiple Accounts Google Apps support Secure password storage using Gnome-Keyring Themable unread emails page Preferences sync using U1  Right now, my target is to make it stable/usable enough in time for Maverick.</description>
     </item>
     
@@ -86,7 +86,7 @@ Features  Multiple Accounts Google Apps support Secure password storage using Gn
       <pubDate>Sun, 13 Jun 2010 05:30:00 +0800</pubDate>
       
       <guid>https://owais.lone.pw/blog/kargil/</guid>
-      <description>Rest of the Set </description>
+      <description></description>
     </item>
     
     <item>
@@ -109,16 +109,24 @@ Features  Multiple Accounts Google Apps support Secure password storage using Gn
     
     <item>
       <title>Resume</title>
+      <link>https://owais.lone.pw/macos-annoyances/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://owais.lone.pw/macos-annoyances/</guid>
+      <description>macOS annoyances External displays </description>
+    </item>
+    
+    <item>
+      <title>Resume</title>
       <link>https://owais.lone.pw/resume/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://owais.lone.pw/resume/</guid>
-      <description>Owais Lone I&amp;rsquo;ve been working in the tech industry professionally for almost ten years and have worn multiple hats while doing so. I&amp;rsquo;ve helped co-found startups, served as a CTO, assembled and lead some great engineering teams, participated in and maintained a number of open-source projects among other things.
-Contact   Email: owais@lone.pw &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;loneowais@gmail.com
- Keybase: keybase.io/owais
- IRC (Freenode, OFTC): OwaisL
-   
-Work History   Senior Software Engineer at Splunk September 2019 - Present | https://splunk.</description>
+      <description>Owais Lone I&#39;ve been working in the tech industry professionally for almost ten years and have worn multiple hats while doing so. I&#39;ve helped co-found startups, served as a CTO, assembled and lead some great engineering teams, participated in and maintained a number of open-source projects among other things.
+Contact   Email: owais@lone.pw loneowais@gmail.com
+  Keybase: keybase.io/owais
+  IRC (Freenode, OFTC): OwaisL
+    Senior Software Engineer at Splunk September 2019 - Present | https://splunk.</description>
     </item>
     
   </channel>

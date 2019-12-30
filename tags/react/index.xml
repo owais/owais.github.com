@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>React on Owais Lone</title>
@@ -17,10 +17,10 @@
       <pubDate>Sat, 23 May 2015 00:31:14 +0800</pubDate>
       
       <guid>https://owais.lone.pw/blog/webpack-plus-reactjs-and-django/</guid>
-      <description>If you don&amp;rsquo;t already know webpack, you&amp;rsquo;ve some catching up to do.
+      <description>If you don&#39;t already know webpack, you&#39;ve some catching up to do.
  Webpack is a module bundler that bundles javascript and other assets for the browser. It works really well for applications and javascript libraries and is very simple frontend build tool.
-- Kent C. Dodds  - https://egghead.io/lessons/javascript-intro-to-webpack
- Objectives and reasoning We&amp;rsquo;ll be setting up webpack and keeping it decoupled from django&amp;rsquo;s staticfiles system. Read my earlier post explaining why we&amp;rsquo;ll be handling things this way and not integrating with staticfiles.</description>
+- Kent C. Dodds - https://egghead.io/lessons/javascript-intro-to-webpack&amp;lt;/small&amp;gt;
+ Objectives and reasoning We&#39;ll be setting up webpack and keeping it decoupled from django&#39;s staticfiles system. Read my earlier postexplaining why we&#39;ll be handling things this way and not integrating with staticfiles.</description>
     </item>
     
     <item>
@@ -29,7 +29,7 @@
       <pubDate>Fri, 22 May 2015 02:03:50 +0800</pubDate>
       
       <guid>https://owais.lone.pw/blog/modern-frontends-with-django/</guid>
-      <description>The problem Django is great but it&amp;rsquo;s frontend toolchain is stuck in the past. Imagine if someone told you to copy all your python module dependencies in your source tree and import them from there. Unthinkable, right? We&amp;rsquo;ve pip and virtualenv for that. We also have npm and bower for frontend packages but we still choose to manage frontend packages manually or write very complex wrappers over javascript tools so that we only have to deal with Python.</description>
+      <description>The problem Django is great but it&#39;s frontend toolchain is stuck in the past. Imagine if someone told you to copy all your python module dependencies in your source tree and import them from there. Unthinkable, right? We&#39;ve pip and virtualenv for that. We also have npm and bower for frontend packages but we still choose to manage frontend packages manually or write very complex wrappers over javascript tools so that we only have to deal with Python.</description>
     </item>
     
   </channel>
