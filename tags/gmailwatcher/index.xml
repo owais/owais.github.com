@@ -17,7 +17,7 @@
       <pubDate>Wed, 15 Sep 2010 05:30:00 +0800</pubDate>
       
       <guid>https://owais.lone.pw/blog/update-gmailwatcher/</guid>
-      <description>In case you don&#39;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&#39;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
+      <description>In case you don&amp;rsquo;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&amp;rsquo;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
 Features  Multiple Accounts Google Apps support Secure password storage using Gnome-Keyring Themable unread emails page Preferences sync using U1  Right now, my target is to make it stable/usable enough in time for Maverick.</description>
     </item>
     
@@ -27,7 +27,7 @@ Features  Multiple Accounts Google Apps support Secure password storage using Gn
       <pubDate>Tue, 06 Jul 2010 05:30:00 +0800</pubDate>
       
       <guid>https://owais.lone.pw/blog/gmail-watcher/</guid>
-      <description>In case you don&#39;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&#39;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
+      <description>In case you don&amp;rsquo;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&amp;rsquo;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
 Features  Multiple Accounts Google Apps support Secure password storage using Gnome-Keyring Themable unread emails page Preferences sync using U1  Right now, my target is to make it stable/usable enough in time for Maverick.</description>
     </item>
     

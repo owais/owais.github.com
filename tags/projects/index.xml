@@ -17,7 +17,7 @@
       <pubDate>Sun, 13 Nov 2011 05:30:00 +0800</pubDate>
       
       <guid>https://owais.lone.pw/blog/remember-the-rhythm/</guid>
-      <description>I recently switched to Rhythmbox from Banshee and I&#39;m loving it. It&#39;s fast, loads up almost instantly, doesn&#39;t consume as much resources as Bansee and doesn&#39;t crash after every 3 songs. I do miss some features that Banshee had though like remembering the last playing song. So, I created a plugin for rhythmbox just to do that. It remembers the last playing entry (song, radio station, podcast, etc), playback time, browser filters (genre, artist and album) and playlists.</description>
+      <description>I recently switched to Rhythmbox from Banshee and I&amp;rsquo;m loving it. It&amp;rsquo;s fast, loads up almost instantly, doesn&amp;rsquo;t consume as much resources as Bansee and doesn&amp;rsquo;t crash after every 3 songs. I do miss some features that Banshee had though like remembering the last playing song. So, I created a plugin for rhythmbox just to do that. It remembers the last playing entry (song, radio station, podcast, etc), playback time, browser filters (genre, artist and album) and playlists.</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Wed, 15 Sep 2010 05:30:00 +0800</pubDate>
       
       <guid>https://owais.lone.pw/blog/update-gmailwatcher/</guid>
-      <description>In case you don&#39;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&#39;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
+      <description>In case you don&amp;rsquo;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&amp;rsquo;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
 Features  Multiple Accounts Google Apps support Secure password storage using Gnome-Keyring Themable unread emails page Preferences sync using U1  Right now, my target is to make it stable/usable enough in time for Maverick.</description>
     </item>
     
@@ -36,7 +36,7 @@ Features  Multiple Accounts Google Apps support Secure password storage using Gn
       <pubDate>Tue, 06 Jul 2010 05:30:00 +0800</pubDate>
       
       <guid>https://owais.lone.pw/blog/gmail-watcher/</guid>
-      <description>In case you don&#39;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&#39;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
+      <description>In case you don&amp;rsquo;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&amp;rsquo;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
 Features  Multiple Accounts Google Apps support Secure password storage using Gnome-Keyring Themable unread emails page Preferences sync using U1  Right now, my target is to make it stable/usable enough in time for Maverick.</description>
     </item>
     
