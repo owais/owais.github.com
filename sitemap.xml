@@ -13,11 +13,6 @@
   </url>
   
   <url>
-    <loc>https://owais.lone.pw/</loc>
-    <lastmod>2015-05-23T00:31:14+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://owais.lone.pw/tags/react/</loc>
     <lastmod>2015-05-23T00:31:14+08:00</lastmod>
   </url>
@@ -44,6 +39,11 @@
   
   <url>
     <loc>https://owais.lone.pw/macos-annoyances/</loc>
+    <lastmod>2012-04-17T05:30:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://owais.lone.pw/</loc>
     <lastmod>2012-04-17T05:30:00+08:00</lastmod>
   </url>
   

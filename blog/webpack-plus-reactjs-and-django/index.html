@@ -55,7 +55,7 @@
 
     <link href="http://gmpg.org/xfn/11" rel="profile">
 
-    <meta name="generator" content="Hugo 0.64.1" />
+    <meta name="generator" content="Hugo 0.67.0" />
 </head>
 
 
@@ -182,7 +182,7 @@ touch assets/js/index.js
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">React</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;react&#39;</span>)
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./app&#39;</span>)
 
-<span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">render</span>(<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">App</span><span style="color:#f92672">/</span><span style="color:#f92672">&gt;</span>, document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;react-app&#39;</span>))
+<span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">render</span>(<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">App</span><span style="color:#f92672">/&gt;</span>, document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;react-app&#39;</span>))
 </code></pre></div><!-- raw HTML omitted -->
 <p>module.exports = React.createClass({
 render: function(){
@@ -209,19 +209,19 @@ pip install django-webpack-loader
 BASE_DIR <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>dirname(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>dirname(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>abspath(__file__)))
 
 STATICFILES_DIRS <span style="color:#f92672">=</span> (
-    os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(BASE_DIR, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">assets</span><span style="color:#e6db74">&#39;</span>), <span style="color:#75715e"># We do this so that django&#39;s collectstatic copies or our bundles to the STATIC_ROOT or syncs them to whatever storage we use.</span>
+    os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(BASE_DIR, <span style="color:#e6db74">&#39;assets&#39;</span>), <span style="color:#75715e"># We do this so that django&#39;s collectstatic copies or our bundles to the STATIC_ROOT or syncs them to whatever storage we use.</span>
 )
 
 WEBPACK_LOADER <span style="color:#f92672">=</span> {
-    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">DEFAULT</span><span style="color:#e6db74">&#39;</span>: {
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">BUNDLE_DIR_NAME</span><span style="color:#e6db74">&#39;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">bundles/</span><span style="color:#e6db74">&#39;</span>,
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">STATS_FILE</span><span style="color:#e6db74">&#39;</span>: os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(BASE_DIR, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">webpack-stats.json</span><span style="color:#e6db74">&#39;</span>),
+    <span style="color:#e6db74">&#39;DEFAULT&#39;</span>: {
+        <span style="color:#e6db74">&#39;BUNDLE_DIR_NAME&#39;</span>: <span style="color:#e6db74">&#39;bundles/&#39;</span>,
+        <span style="color:#e6db74">&#39;STATS_FILE&#39;</span>: os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(BASE_DIR, <span style="color:#e6db74">&#39;webpack-stats.json&#39;</span>),
     }
 }
 
 INSTALLED_APPS <span style="color:#f92672">=</span> (
- <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
- <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">webpack_loader</span><span style="color:#e6db74">&#39;</span>,
+ <span style="color:#f92672">...</span>
+ <span style="color:#e6db74">&#39;webpack_loader&#39;</span>,
 )
 </code></pre></div><h3 id="usage">Usage</h3>
 <h4 id="in-templates">In templates</h4>
@@ -401,9 +401,9 @@ config.module.loaders.push(
 module.exports = config
 </code></pre><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> DEBUG:
-    WEBPACK_LOADER[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">DEFAULT</span><span style="color:#e6db74">&#39;</span>]<span style="color:#f92672">.</span>update({
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">BUNDLE_DIR_NAME</span><span style="color:#e6db74">&#39;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">dist/</span><span style="color:#e6db74">&#39;</span>,
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">STATS_FILE</span><span style="color:#e6db74">&#39;</span>: os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(BASE_DIR, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">webpack-stats-prod.json</span><span style="color:#e6db74">&#39;</span>
+    WEBPACK_LOADER[<span style="color:#e6db74">&#39;DEFAULT&#39;</span>]<span style="color:#f92672">.</span>update({
+        <span style="color:#e6db74">&#39;BUNDLE_DIR_NAME&#39;</span>: <span style="color:#e6db74">&#39;dist/&#39;</span>,
+        <span style="color:#e6db74">&#39;STATS_FILE&#39;</span>: os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(BASE_DIR, <span style="color:#e6db74">&#39;webpack-stats-prod.json&#39;</span>
     })
 </code></pre></div><p>Generate production bundles by invoking webpack one time with production config</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./node_modules/.bin/webpack --config webpack.prod.config.js
