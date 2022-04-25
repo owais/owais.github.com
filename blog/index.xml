@@ -6,11 +6,7 @@
     <description>Recent content in Blogs on Owais Lone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 May 2015 00:31:14 +0800</lastBuildDate>
-    
-	<atom:link href="https://owais.lone.pw/blog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 23 May 2015 00:31:14 +0800</lastBuildDate><atom:link href="https://owais.lone.pw/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using Webpack transparently with Django &#43; hot reloading React components as a bonus</title>
       <link>https://owais.lone.pw/blog/webpack-plus-reactjs-and-django/</link>

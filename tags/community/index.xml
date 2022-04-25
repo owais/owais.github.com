@@ -6,11 +6,7 @@
     <description>Recent content in Community on Owais Lone</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Aug 2010 05:30:00 +0800</lastBuildDate>
-    
-	<atom:link href="https://owais.lone.pw/tags/community/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 04 Aug 2010 05:30:00 +0800</lastBuildDate><atom:link href="https://owais.lone.pw/tags/community/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>From TC 90 to Python</title>
       <link>https://owais.lone.pw/blog/tc-90-python-27/</link>
