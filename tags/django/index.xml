@@ -15,7 +15,8 @@
       <guid>https://owais.lone.pw/blog/webpack-plus-reactjs-and-django/</guid>
       <description>If you don&amp;rsquo;t already know webpack, you&amp;rsquo;ve some catching up to do.
  Webpack is a module bundler that bundles javascript and other assets for the browser. It works really well for applications and javascript libraries and is very simple frontend build tool.
-- Kent C. Dodds - https://egghead.io/lessons/javascript-intro-to-webpack Objectives and reasoning We&amp;rsquo;ll be setting up webpack and keeping it decoupled from django&amp;rsquo;s staticfiles system. Read my earlier postexplaining why we&amp;rsquo;ll be handling things this way and not integrating with staticfiles.</description>
+- Kent C. Dodds  - https://egghead.io/lessons/javascript-intro-to-webpack
+ Objectives and reasoning We&amp;rsquo;ll be setting up webpack and keeping it decoupled from django&amp;rsquo;s staticfiles system. Read my earlier post explaining why we&amp;rsquo;ll be handling things this way and not integrating with staticfiles.</description>
     </item>
     
     <item>

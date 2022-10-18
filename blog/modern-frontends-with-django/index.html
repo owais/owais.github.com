@@ -96,7 +96,7 @@
             <h2 id="the-problem">The problem</h2>
 <p>Django is great but it&rsquo;s frontend toolchain is stuck in the past. Imagine if someone told you to copy all your python module dependencies in your source tree and import them from there. Unthinkable, right? We&rsquo;ve pip and virtualenv for that. We also have npm and bower for frontend packages but we still choose to manage frontend packages manually or write very complex wrappers over javascript tools so that we only have to deal with Python. I think this needs to change. The javascript community has come up with some awesome pieces of software. Npm is one of the best, probably the best package manager I&rsquo;ve come across. Tools like grunt, gulp,
 browserify, webpack are too good to ignore.</p>
-<!-- raw HTML omitted -->
+<!-- more -->
 <h3 id="problems-with-the-currect-approach">Problems with the currect approach</h3>
 <ul>
 <li>Manually maintaining dependencies is a pain.</li>
@@ -120,7 +120,7 @@ browserify, webpack are too good to ignore.</p>
 <p>For simpler cases, we don&rsquo;t even need to integrate. We can use things like gulp or grunt to compile assets and then use collectstatic to sync the builds, but we need some sort of integration to make things a bit smoother. During development, it makes sense to return 500 error code when a build fails so one knows immediately where to look for the problem. It also makes sense to block a request while a build is being compiled to make sure you don&rsquo;t test older code in the browser. For production use, we can configure our frontend tools to use hashed names in the builds; It would be nice to have an easy way to get reference to hashed bundles in django. In my opinion, integration should stop here. We should not spawn processes from python, translate config in settings.py to native JS config.</p>
 <p>I suggest we use bridges, not wrappers. Instead of writing wrappers around something like webpack and spawning webpack processes form within django, we should run webpack independently and pipe the output to django. If we can come up with a standard for this, we would only have to write a single bridge application for django. Then instead of writing django apps that wrap the javascript tools, we write plugins for the tools that emit useful data to be consumed by django or any other framework.</p>
 <h2 id="webpack-bundle-tracker--django-webpack-loader">webpack-bundle-tracker + django-webpack-loader</h2>
-<p><!-- raw HTML omitted -->django-webpack-loader<!-- raw HTML omitted --> and <!-- raw HTML omitted -->webpack-bundle-tracker<!-- raw HTML omitted --> implement a system like this. webpack-bundle-tracker plugin emits necessary information about webpack&rsquo;s compilation process and results so django-webpack-loader can consume it. django-webpack-loader does not care how you use webpack. You could control it from gulp, use the dev server, use the &ndash;watch mode or manually run it after every change. Head over to <!-- raw HTML omitted --><a href="https://github.com/owais/django-webpack-loader/">https://github.com/owais/django-webpack-loader/</a><!-- raw HTML omitted --> to see how it all works or read <!-- raw HTML omitted -->this guide<!-- raw HTML omitted --> for setting it all up with optional live reload for react components.</p>
+<p><a href="https://github.com/owais/django-webpack-loader/" target="_blank">django-webpack-loader</a> and <a href="https://github.com/owais/webpack-bundle-tracker" target="_blank">webpack-bundle-tracker</a> implement a system like this. webpack-bundle-tracker plugin emits necessary information about webpack&rsquo;s compilation process and results so django-webpack-loader can consume it. django-webpack-loader does not care how you use webpack. You could control it from gulp, use the dev server, use the &ndash;watch mode or manually run it after every change. Head over to <a href="https://github.com/owais/django-webpack-loader/"><a href="https://github.com/owais/django-webpack-loader/">https://github.com/owais/django-webpack-loader/</a></a> to see how it all works or read <a href="http://owais.lone.pw/blog/webpack-plus-reactjs-and-django/" target="_blank">this guide</a> for setting it all up with optional live reload for react components.</p>
 <h3 id="what-this-solves">What this solves</h3>
 <ul>
 <li>Use proper package managers like npm and bower instead of manually managing source files.</li>
@@ -137,7 +137,7 @@ browserify, webpack are too good to ignore.</p>
 </ul>
 <h2 id="related-articles">Related articles</h2>
 <ul>
-<li><!-- raw HTML omitted -->Using Webpack transparently with Django and + reloading React components as a bonus<!-- raw HTML omitted --></li>
+<li><a href="http://owais.lone.pw/blog/webpack-plus-reactjs-and-django/" target="_blank">Using Webpack transparently with Django and + reloading React components as a bonus</a></li>
 </ul>
 
         </div>

@@ -99,23 +99,23 @@
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <p>If you don&rsquo;t already know <!-- raw HTML omitted -->webpack<!-- raw HTML omitted -->, you&rsquo;ve some <!-- raw HTML omitted -->catching up to do<!-- raw HTML omitted -->.</p>
+            <p>If you don&rsquo;t already know <a href="http://webpack.github.io/docs/what-is-webpack.html">webpack</a>, you&rsquo;ve some <a href="https://egghead.io/lessons/javascript-intro-to-webpack" target="_blank">catching up to do</a>.</p>
 <blockquote>
 <p>Webpack is a module bundler that bundles javascript and other assets for the browser. It works really well for applications and javascript libraries and is very simple frontend build tool.</p>
-<p>- Kent C. Dodds <!-- raw HTML omitted --> -  <a href="https://egghead.io/lessons/javascript-intro-to-webpack">https://egghead.io/lessons/javascript-intro-to-webpack</a><!-- raw HTML omitted --></p>
+<p>- Kent C. Dodds <small> -  <a href="https://egghead.io/lessons/javascript-intro-to-webpack">https://egghead.io/lessons/javascript-intro-to-webpack</a></small></p>
 </blockquote>
-<!-- raw HTML omitted -->
+<!-- more -->
 <h2 id="objectives-and-reasoning">Objectives and reasoning</h2>
-<p>We&rsquo;ll be setting up webpack and keeping it decoupled from django&rsquo;s staticfiles system. Read <!-- raw HTML omitted -->my earlier post<!-- raw HTML omitted --> explaining why we&rsquo;ll be handling things this way and not integrating with staticfiles. We&rsquo;ll be using <!-- raw HTML omitted -->webpack-bundle-tracker<!-- raw HTML omitted --> to extract information from webpack and <!-- raw HTML omitted -->django-webpack-loader<!-- raw HTML omitted --> to use the extracted information for django integration.</p>
+<p>We&rsquo;ll be setting up webpack and keeping it decoupled from django&rsquo;s staticfiles system. Read <a href="http://owais.lone.pw/blog/modern-frontends-with-django/" target="_blank">my earlier post</a> explaining why we&rsquo;ll be handling things this way and not integrating with staticfiles. We&rsquo;ll be using <a href="https://github.com/owais/webpack-bundle-tracker" target="_blank">webpack-bundle-tracker</a> to extract information from webpack and <a href="https://github.com/owais/django-webpack-loader/">django-webpack-loader</a> to use the extracted information for django integration.</p>
 <h2 id="setting-up-webpack">Setting up webpack</h2>
-<p>We&rsquo;ll use <!-- raw HTML omitted -->npm<!-- raw HTML omitted --> to manage our frontend dependencies instead of managing them manually in one of the static files directories. You can also use <!-- raw HTML omitted -->bower<!-- raw HTML omitted --> in addition to npm.</p>
+<p>We&rsquo;ll use <a href="http://npmjs.com/">npm</a> to manage our frontend dependencies instead of managing them manually in one of the static files directories. You can also use <a href="http://bower.io/">bower</a> in addition to npm.</p>
 <p>First let&rsquo;s setup npm in the root of your django project. This will generate a file called <code>package.json</code> in your project root. It serves 2 purposes. Imagine requirements.txt and setup.py merged into one. That is package.json for npm packages. If you use the <code>--save</code> or <code>--save-dev</code> flag when installing a package, it&rsquo;ll save the packages as dependencies in the package.json file. To reinstall the packages, all you need to is run <code>npm install</code>. Awesome, right? It gets better. The packages will be installed locally specific to your project under a directory called node_modules like virtualenv. To install a package globally, all you need to do is to use <code>-g</code> with npm install.</p>
 <p>So, let&rsquo;s generate a package.json file in our project root using npm init</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm init
 </span></span></code></pre></div><h3 id="npm-dependencies">Npm dependencies</h3>
 <p>In addition to webpack, we&rsquo;ll at least need the webpack-bundle-tracker plugin to extract useful information from webpack and store it in as json in a file. This file will act as the link between webpack and django.</p>
-<p>Since we&rsquo;ll be setting up webpack with an example reactjs app, we&rsquo;ll also need <!-- raw HTML omitted -->babel<!-- raw HTML omitted -->. Babel is a great Javascript compiler that compiles ES6 into ES5 among other things. This lets use write next generation javascript today and still have run work in current browsers. Babel also supports react&rsquo;s JSX language so we don&rsquo;t need an additional compiler for that.</p>
-<p>We&rsquo;ll also need babel-loader to integrate babel with webpack. Webpack supports pluggable libraries called loaders that add support for different types of files and languages. Loaders can also be chained. For example, you can make a less file go through a less loader to compile it to css and then pass the output  through a css loader. <!-- raw HTML omitted -->More on loaders here<!-- raw HTML omitted -->.</p>
+<p>Since we&rsquo;ll be setting up webpack with an example reactjs app, we&rsquo;ll also need <a href="https://babeljs.io/" tatget="_blank">babel</a>. Babel is a great Javascript compiler that compiles ES6 into ES5 among other things. This lets use write next generation javascript today and still have run work in current browsers. Babel also supports react&rsquo;s JSX language so we don&rsquo;t need an additional compiler for that.</p>
+<p>We&rsquo;ll also need babel-loader to integrate babel with webpack. Webpack supports pluggable libraries called loaders that add support for different types of files and languages. Loaders can also be chained. For example, you can make a less file go through a less loader to compile it to css and then pass the output  through a css loader. <a href="http://webpack.github.io/docs/using-loaders.html" target="_blank">More on loaders here</a>.</p>
 <h3 id="save-vs-save-dev">save vs save-dev</h3>
 <p><code>--save</code> saves the packages you install as dependencies of your package. The packages that must be installed in order to run your package. <code>--save-dev</code> saves the packages as build dependencies, the packages that must be installed to hack on your package. Since we are not going to be publishing a real npm package, either one works. I like to use &ndash;save-dev as I only need the packages to build my bundles. Whatever the bundle depends on is included in the bundle itself.</p>
 <p>Let&rsquo;s install our first npm packages</p>
@@ -124,7 +124,7 @@
 <pre tabindex="0"><code>mkdir -p assets/js
 touch webpack.config.js
 touch assets/js/index.js
-</code></pre><p>Let&rsquo;s create a simple webpack config to load <code>.jsx</code> files using babel and use the <code>webpack-bundle-tracker</code> plugin to extract information to <code>webpack-stats.json</code>. <!-- raw HTML omitted -->More on webpack configuration here<!-- raw HTML omitted -->.</p>
+</code></pre><p>Let&rsquo;s create a simple webpack config to load <code>.jsx</code> files using babel and use the <code>webpack-bundle-tracker</code> plugin to extract information to <code>webpack-stats.json</code>. <a href="http://webpack.github.io/docs/configuration.html" target="_blank">More on webpack configuration here</a>.</p>
 <p><code>webpack.config.js</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;path&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">webpack</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;webpack&#39;</span>)
@@ -173,19 +173,22 @@ touch assets/js/index.js
 <h3 id="watch-mode">Watch mode</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./node_modules/.bin/webpack --config webpack.config.js --watch
 </span></span></code></pre></div><p>This will leave the compiler running and compile bundles automatically when you change any of your source files. You&rsquo;ll need to restart it if you make any changes to the webpack configuration though.</p>
-<!-- raw HTML omitted -->
+<hr>
 <h2 id="example-react-app">Example react app</h2>
-<p><!-- raw HTML omitted -->Skip this part<!-- raw HTML omitted --> if you already have a react app running.</p>
+<p><a href="#Django_integration">Skip this part</a> if you already have a react app running.</p>
 <p>Let&rsquo;s write a simple &ldquo;hello, world&rdquo; react app and use webpack to compile it. We refer to <code>./assets/js/index</code> as the entry point of our app in <code>webpack.config.js</code> which will look for <code>index</code>, <code>index.js</code> or <code>index.jsx</code> because we&rsquo;ve added these three extensions to our webpack config under the key <code>resolve</code>.</p>
 <p><code>assets/js/index.jsx</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">React</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;react&#39;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./app&#39;</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">render</span>(<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">App</span><span style="color:#f92672">/&gt;</span>, document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;react-app&#39;</span>))
-</span></span></code></pre></div><!-- raw HTML omitted -->
+</span></span></code></pre></div><br>
+`assets/js/app.jsx`
+```javascript
+var React = require('react')
 <p>module.exports = React.createClass({
 render: function(){
-return <!-- raw HTML omitted -->Hello, world.<!-- raw HTML omitted -->
+return <h1>Hello, world.</h1>
 }
 })</p>
 <pre tabindex="0"><code>
@@ -240,8 +243,10 @@ pip install django-webpack-loader
 </span></span></code></pre></div><p><code>render_bundle</code> will render the required <code>&lt;script&gt;</code> and <code>&lt;link&gt;</code> tags in the template.</p>
 <p>Everything we need is in place now. Bundles will be automatically generated (provided you start webpack with &ndash;watch). Django will automatically pick up latest bundles from <code>assets/bundles</code> directory. During development, django will also block any requests while the bundles are being compiled. It&rsquo;ll also propagate errors generated by webpack to django.</p>
 <p>Now that we&rsquo;ve webpack working with django, let&rsquo;s make things a little more fun by setting up hot reloading for our react components.</p>
-<!-- raw HTML omitted -->
-<p>We&rsquo;ll use a library called <!-- raw HTML omitted -->react-hot-loader<!-- raw HTML omitted --> by <!-- raw HTML omitted -->Dan Abramov<!-- raw HTML omitted -->. We&rsquo;ll also need <!-- raw HTML omitted -->webpack-dev-server<!-- raw HTML omitted --> to build and serve our bundles if we want to hot reload any modules.</p>
+<hr>
+## Bonus: Live editing react components
+Since we are using pure webpack without any abstraction, we are free to use it however we want without the need to integrate any special with django. Whenever something new comes up for webpack, we can immediately use it without worrying if staticfiles, pipeline or compressor will support it or not. Decoupling FTW!
+<p>We&rsquo;ll use a library called <a href="http://gaearon.github.io/react-hot-loader/" target="_blank">react-hot-loader</a> by <a href="https://github.com/gaearon/react-hot-loader" target="_blank">Dan Abramov</a>. We&rsquo;ll also need <a href="https://github.com/webpack/webpack-dev-server">webpack-dev-server</a> to build and serve our bundles if we want to hot reload any modules.</p>
 <h3 id="requirements">Requirements</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install --save-dev webpack-dev-server react-hot-loader
 </span></span></code></pre></div><p>Let&rsquo;s modify <code>webpack.config.js</code> to use webpack-dev-server and react-hot-loader</p>
@@ -305,7 +310,7 @@ pip install django-webpack-loader
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>node server.js
 </span></span></code></pre></div><p>Done! Any changes made to the react components will reflect in the browser. No reload needed. Magic! right?</p>
 <p>If you are interested in hot reloading react components, you should read this <a href="https://medium.com/@dan_abramov/the-death-of-react-hot-loader-765fa791d7c4">https://medium.com/@dan_abramov/the-death-of-react-hot-loader-765fa791d7c4</a></p>
-<!-- raw HTML omitted -->
+<hr>
 <h2 id="production-environments">Production environments</h2>
 <p>Production bundles are different from local ones for various reason. I like to have slightly different webpack config for production, generate them locally and commit the bundle(s) and stats file to the code base. As we store our bundles in assets and django is configured to look for static files in the assets directory, we don&rsquo;t need to do anything special here. Everything should just work with your existing system of serving static content in production.</p>
 <p>We can either treat the bundles as part of source code or distribution. I like to treat them as source code even though they are not because I don&rsquo;t like building bundles on production or having my production systems depend on dev dependencies. By treating them as source code, I build them locally before preparing a new release, sync them to my static file server, commit the new stats file to source and push out the new release to the production servers. As soon as they workers on production restart, they automatically refer to the new bundles. That said, you are completely free to handle them the opposite way. You can tell git to ignore the generated bundles and stats file so they are not pushed to production and then run webpack on production just before running collectstatic. You&rsquo;ll need all your npm dependencies on production as well obviously.</p>
@@ -339,7 +344,12 @@ pip install django-webpack-loader
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">extensions</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;&#39;</span>, <span style="color:#e6db74">&#39;.js&#39;</span>, <span style="color:#e6db74">&#39;.jsx&#39;</span>]
 </span></span><span style="display:flex;"><span>  },
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><!-- raw HTML omitted -->
+</span></span></code></pre></div><br/>
+`webpack.local.config.js`
+```javascript
+var path = require("path")
+var webpack = require('webpack')
+var BundleTracker = require('webpack-bundle-tracker')
 <p>var config = require(&rsquo;./webpack.base.config.js')</p>
 <p>// Use webpack dev server
 config.entry = [
@@ -398,7 +408,8 @@ config.module.loaders.push(
 )
 
 module.exports = config
-</code></pre><!-- raw HTML omitted -->
+</code></pre><br>
+`settings.py`
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> DEBUG:
 </span></span><span style="display:flex;"><span>    WEBPACK_LOADER[<span style="color:#e6db74">&#39;DEFAULT&#39;</span>]<span style="color:#f92672">.</span>update({
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;BUNDLE_DIR_NAME&#39;</span>: <span style="color:#e6db74">&#39;dist/&#39;</span>,

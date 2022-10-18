@@ -15,7 +15,8 @@
       <guid>https://owais.lone.pw/blog/webpack-plus-reactjs-and-django/</guid>
       <description>If you don&amp;rsquo;t already know webpack, you&amp;rsquo;ve some catching up to do.
  Webpack is a module bundler that bundles javascript and other assets for the browser. It works really well for applications and javascript libraries and is very simple frontend build tool.
-- Kent C. Dodds - https://egghead.io/lessons/javascript-intro-to-webpack Objectives and reasoning We&amp;rsquo;ll be setting up webpack and keeping it decoupled from django&amp;rsquo;s staticfiles system. Read my earlier postexplaining why we&amp;rsquo;ll be handling things this way and not integrating with staticfiles.</description>
+- Kent C. Dodds  - https://egghead.io/lessons/javascript-intro-to-webpack
+ Objectives and reasoning We&amp;rsquo;ll be setting up webpack and keeping it decoupled from django&amp;rsquo;s staticfiles system. Read my earlier post explaining why we&amp;rsquo;ll be handling things this way and not integrating with staticfiles.</description>
     </item>
     
     <item>
@@ -90,7 +91,7 @@ Features  Multiple Accounts Google Apps support Secure password storage using Gn
       <pubDate>Sun, 13 Jun 2010 05:30:00 +0800</pubDate>
       
       <guid>https://owais.lone.pw/blog/kargil/</guid>
-      <description></description>
+      <description>[Rest of the Set](http://www.facebook.com/album.php?aid=7618&amp;amp;id=100000988497754&amp;amp;l=1e63f7dd49) ![](http://feeds.feedburner.com/~r/Owaislone/~4/Ea4rnXNwCjk) </description>
     </item>
     
     <item>
@@ -117,9 +118,9 @@ Features  Multiple Accounts Google Apps support Secure password storage using Gn
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://owais.lone.pw/resume/</guid>
-      <description>Owais Lone I&amp;rsquo;ve been working in the tech industry professionally for more than ten years and have worn multiple hats while doing so. I&amp;rsquo;ve helped co-found startups, served as a CTO at one, assembled and lead some great engineering teams, worked big corps and participated in and maintained a number of open-source projects including OpenCensus and OpenTelemetry among other things.
-Contact   Email: owais@lone.pw loneowais@gmail.com
-  Keybase: keybase.io/owais</description>
+      <description>Owais Lone Vancouver, Canada
+I&amp;rsquo;ve been working in the tech industry professionally for more than a decade and have worn multiple hats while doing so. I&amp;rsquo;ve helped co-found startups, served as a CTO at one, assembled and lead some great engineering teams, worked big corps and participated in and maintained a number of open-source projects including OpenCensus and OpenTelemetry among other things.
+Contact   owais@lone.pw loneowais@gmail.com   Work History  Principal Software Engineer at Splunk Vancouver, Canada</description>
     </item>
     
   </channel>
