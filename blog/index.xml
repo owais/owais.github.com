@@ -14,9 +14,9 @@
       
       <guid>https://owais.lone.pw/blog/webpack-plus-reactjs-and-django/</guid>
       <description>If you don&amp;rsquo;t already know webpack, you&amp;rsquo;ve some catching up to do.
- Webpack is a module bundler that bundles javascript and other assets for the browser. It works really well for applications and javascript libraries and is very simple frontend build tool.
-- Kent C. Dodds  - https://egghead.io/lessons/javascript-intro-to-webpack
- Objectives and reasoning We&amp;rsquo;ll be setting up webpack and keeping it decoupled from django&amp;rsquo;s staticfiles system. Read my earlier post explaining why we&amp;rsquo;ll be handling things this way and not integrating with staticfiles.</description>
+Webpack is a module bundler that bundles javascript and other assets for the browser. It works really well for applications and javascript libraries and is very simple frontend build tool.
+- Kent C. Dodds - https://egghead.io/lessons/javascript-intro-to-webpack
+Objectives and reasoning We&amp;rsquo;ll be setting up webpack and keeping it decoupled from django&amp;rsquo;s staticfiles system. Read my earlier post explaining why we&amp;rsquo;ll be handling things this way and not integrating with staticfiles.</description>
     </item>
     
     <item>
@@ -53,7 +53,7 @@
       
       <guid>https://owais.lone.pw/blog/update-gmailwatcher/</guid>
       <description>In case you don&amp;rsquo;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&amp;rsquo;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
-Features  Multiple Accounts Google Apps support Secure password storage using Gnome-Keyring Themable unread emails page Preferences sync using U1  Right now, my target is to make it stable/usable enough in time for Maverick.</description>
+Features Multiple Accounts Google Apps support Secure password storage using Gnome-Keyring Themable unread emails page Preferences sync using U1 Right now, my target is to make it stable/usable enough in time for Maverick.</description>
     </item>
     
     <item>
@@ -73,7 +73,7 @@ If this goes well, Django or PyGTK will be next.</description>
       
       <guid>https://owais.lone.pw/blog/gmail-watcher/</guid>
       <description>In case you don&amp;rsquo;t already know, GmailWatcher is a Gmail notifier specifically designed for the Ubuntu Operating System. It relies heavily on Ubuntu specific packages like MeMenu, Notifications, DesktopCouch but I&amp;rsquo;m planning a stock Gnome version also so that people on Fedora, Suse and other rocking distribution can use it too.
-Features  Multiple Accounts Google Apps support Secure password storage using Gnome-Keyring Themable unread emails page Preferences sync using U1  Right now, my target is to make it stable/usable enough in time for Maverick.</description>
+Features Multiple Accounts Google Apps support Secure password storage using Gnome-Keyring Themable unread emails page Preferences sync using U1 Right now, my target is to make it stable/usable enough in time for Maverick.</description>
     </item>
     
     <item>
@@ -82,7 +82,8 @@ Features  Multiple Accounts Google Apps support Secure password storage using Gn
       <pubDate>Sun, 13 Jun 2010 05:30:00 +0800</pubDate>
       
       <guid>https://owais.lone.pw/blog/kargil/</guid>
-      <description>[Rest of the Set](http://www.facebook.com/album.php?aid=7618&amp;amp;id=100000988497754&amp;amp;l=1e63f7dd49) ![](http://feeds.feedburner.com/~r/Owaislone/~4/Ea4rnXNwCjk) </description>
+      <description>
+[Rest of the Set](http://www.facebook.com/album.php?aid=7618&amp;amp;id=100000988497754&amp;amp;l=1e63f7dd49) ![](http://feeds.feedburner.com/~r/Owaislone/~4/Ea4rnXNwCjk) </description>
     </item>
     
     <item>
